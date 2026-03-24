@@ -275,6 +275,53 @@ body {
 
 .arrow { color: #cbd5e1; }
 
+.breadcrumb {
+    margin-bottom: 20px;
+}
+
+.breadcrumb a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.chapter-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.chapter-card {
+    background: white;
+    padding: 20px 30px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid #e2e8f0;
+    transition: 0.2s;
+}
+
+.chapter-card:hover {
+    border-color: #2563eb;
+    background: #f0f7ff;
+    transform: translateX(10px);
+}
+
+.chapter-card h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #1e293b;
+}
+
+.chapter-card span {
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
 /* --- 5. Resource Page (Final Destination) --- */
 .resource-card-container {
     max-width: 600px;
