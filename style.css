@@ -72,6 +72,64 @@ body {
 }
 
 /* --- 3. Hero & About Section (Home Page) --- */
+
+/* Hero Section Enhancements */
+.badge-new {
+    background: #dbeafe;
+    color: #2563eb;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.text-blue { color: #2563eb; }
+
+.hero-btns { display: flex; gap: 15px; margin-top: 20px; }
+
+.secondary-button {
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #e2e8f0;
+    color: #475569;
+}
+
+.placeholder-vks {
+    width: 300px;
+    height: 350px;
+    background: #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    font-weight: 800;
+    color: #94a3b8;
+    border: 4px dashed #cbd5e1;
+}
+
+/* About Section Enhancements */
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.features-list { margin-top: 25px; display: grid; gap: 10px; }
+.f-item { background: white; padding: 12px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+
+.footer {
+    text-align: center;
+    padding: 40px;
+    background: #1e293b;
+    color: white;
+    margin-top: 60px;
+}
 .hero {
     display: flex;
     flex-wrap: wrap;
