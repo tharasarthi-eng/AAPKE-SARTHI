@@ -40,32 +40,32 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5%;
-    background: var(--white);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    padding: 20px 8%;
+    background: white;
+    border-bottom: 1px solid #f0f0f0;
 }
 
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px; /* Space between links */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #4b5563;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #2563eb;
+}
 .logo {
     font-size: 1.5rem;
     font-weight: 800;
     color: var(--primary);
     text-transform: uppercase;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-    align-items: center;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-main);
-    font-weight: 500;
 }
 
 .cta-btn {
