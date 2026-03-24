@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topics | Aapke Sarthi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <button onclick="history.back()" class="back-btn">← Back to Chapters</button>
+            <h1 id="chapterTitle">Chapter Name</h1>
+            <p>Select a topic to access resources</p>
+        </header>
+
+        <div id="topicGrid" class="grid-list">
+            </div>
+    </div>
+
+    <script>
+        // Get the chapter name the user clicked on the previous page
+        const selectedChapter = localStorage.getItem('selectedChapter') || "Mathematics";
+        document.getElementById('chapterTitle').innerText = selectedChapter;
+
+        const topicGrid = document.getElementById('topicGrid');
+
+        // Generate 10 Topics
+        for (let i = 1; i <= 10; i++) {
+            const topicName = `Topic ${i}`;
+            const btn = document.createElement('button');
+            btn.className = 'list-item-btn';
+            btn.innerHTML = `<span>${topicName}</span> <span class="arrow">→</span>`;
+            
+            btn.onclick = () => {
+                localStorage.setItem('selectedTopic', topicName);
+                window.location.href = 'resources.html';
+            };
+            
+            topicGrid.appendChild(btn);
+        }
+    </script>
+</body>
+</html>
