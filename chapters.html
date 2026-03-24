@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapters | Aapke Sarthi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <button onclick="location.href='sections.html'" class="back-btn">← Back to Sections</button>
+            <h1 id="sectionTitle">Section Name</h1>
+            <p>Choose a chapter to begin</p>
+        </header>
+
+        <div id="chapterGrid" class="grid-list">
+            </div>
+    </div>
+
+    <script>
+        // Data Object based on your requirements
+        const chapterData = {
+            "Geometry": [
+                "Straight line", "Circle", "Parabola", "Ellipse", 
+                "Hyperbola", "Vector", "3D"
+            ],
+            "Calculus": [
+                "Set theory", "Relation", "Function", "Inverse trigonometry function", 
+                "Limit, continuity and differentiability", "Method of differentiation", 
+                "Application Of Derivatives", "Integration (indefinite)", 
+                "Integration (definite)", "Application of integration", "Differentiatial equation"
+            ],
+            "Algebra": [
+                "Quadratic equations", "Trigonometry ration and equtions", 
+                "Sequence and series", "Binomial theorem", 
+                "Permutations and combinations", "Probability", 
+                "Matrices", "Determinants", "Complex", "Statistics"
+            ],
+            "Miscellaneous": ["General Maths", "Logarithms", "Mathematical Reasoning"]
+        };
+
+        const section = localStorage.getItem('selectedSection') || "Geometry";
+        document.getElementById('sectionTitle').innerText = section;
+
+        const chapterGrid = document.getElementById('chapterGrid');
+        const chapters = chapterData[section] || [];
+
+        chapters.forEach(chapName => {
+            const btn = document.createElement('button');
+            btn.className = 'list-item-btn';
+            btn.innerHTML = `<span>${chapName}</span> <span class="arrow">→</span>`;
+            
+            btn.onclick = () => {
+                localStorage.setItem('selectedChapter', chapName);
+                window.location.href = 'topics.html';
+            };
+            
+            chapterGrid.appendChild(btn);
+        });
+    </script>
+</body>
+</html>
