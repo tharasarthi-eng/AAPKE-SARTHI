@@ -1,0 +1,13 @@
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f7f6; margin: 0; padding: 20px; color: #333; }
+header { text-align: center; margin-bottom: 30px; }
+h1 { color: #2563eb; margin-bottom: 5px; }
+#searchInput { width: 100%; max-width: 600px; padding: 15px; border-radius: 10px; border: 2px solid #ddd; font-size: 16px; display: block; margin: 0 auto; }
+#sectionFilters { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
+.filter-btn { padding: 8px 20px; border-radius: 20px; border: 1px solid #ccc; cursor: pointer; background: white; }
+.filter-btn.active { background: #2563eb; color: white; border-color: #2563eb; }
+.card { background: white; padding: 20px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; }
+.badge { font-size: 10px; font-weight: bold; color: #2563eb; text-transform: uppercase; }
+.btn { text-decoration: none; padding: 8px 15px; border-radius: 6px; font-size: 14px; font-weight: 500; margin-left: 5px; }
+.dpp { background: #eff6ff; color: #1d4ed8; }
+.ppt { background: #fff7ed; color: #c2410c; }
+.yt { background: #fef2f2; color: #b91c1c; }
