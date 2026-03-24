@@ -324,28 +324,25 @@ h1 {
 
 /* Styling the "View 10 Topics" text */
 /* Topic Stack Layout */
+/* This makes the topics appear in a nice vertical stack */
 .topic-stack {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
     margin-top: 30px;
+    max-width: 900px;
 }
 
+/* This creates the white box around each topic */
 .topic-item {
-    background: white;
+    background: #ffffff;
     padding: 15px 25px;
-    border-radius: 14px;
-    border: 1px solid #eef2f6;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Pushes buttons to the right */
     align-items: center;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-}
-
-.topic-item:hover {
-    border-color: #2563eb;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .topic-main {
@@ -355,20 +352,18 @@ h1 {
 }
 
 .topic-num {
-    color: #94a3b8;
-    font-weight: 700;
-    font-size: 1.1rem;
-    min-width: 25px;
+    font-weight: bold;
+    color: #2563eb;
+    background: #eff6ff;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
 }
 
-.topic-main h3 {
-    margin: 0;
-    font-size: 1.1rem;
-    color: #1e293b;
-    font-weight: 600;
-}
-
-/* Resource Buttons Group */
+/* This keeps the buttons side-by-side */
 .resource-group {
     display: flex;
     gap: 10px;
@@ -376,23 +371,15 @@ h1 {
 
 .res-btn {
     text-decoration: none;
-    padding: 8px 14px;
+    padding: 8px 15px;
     border-radius: 8px;
-    font-size: 0.85rem;
+    font-size: 14px;
     font-weight: 600;
-    transition: 0.2s;
-    border: 1px solid transparent;
 }
 
-/* Specific Button Colors */
-.dpp-btn { background: #eff6ff; color: #2563eb; border-color: #dbeafe; }
-.dpp-btn:hover { background: #2563eb; color: white; }
-
-.ppt-btn { background: #fff7ed; color: #ea580c; border-color: #ffedd5; }
-.ppt-btn:hover { background: #ea580c; color: white; }
-
-.yt-btn { background: #fef2f2; color: #dc2626; border-color: #fee2e2; }
-.yt-btn:hover { background: #dc2626; color: white; }
+.dpp-btn { background: #e0f2fe; color: #0369a1; }
+.ppt-btn { background: #ffedd5; color: #9a3412; }
+.yt-btn { background: #fee2e2; color: #991b1b; }
 
 /* Mobile Responsive: Stack buttons on small screens */
 @media (max-width: 768px) {
