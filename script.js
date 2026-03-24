@@ -21,3 +21,19 @@ function selectTopic(name) {
     localStorage.setItem('selectedTopic', name);
     window.location.href = 'resources.html';
 }
+
+function toggleFab() {
+    const menu = document.getElementById('fabMenu');
+    const icon = document.getElementById('fabIcon');
+    
+    menu.classList.toggle('active');
+    
+    // Change icon to 'X' when open
+    if (menu.classList.contains('active')) {
+        icon.innerText = "✕";
+        icon.style.fontSize = "20px";
+    } else {
+        icon.innerText = "💬";
+        icon.style.fontSize = "24px";
+    }
+}
