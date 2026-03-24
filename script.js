@@ -1,61 +1,23 @@
-// This is where you will add your real links later
-const educationData = [
-    { id: 1, section: "Calculus", chapter: "Limits", topic: "L'Hopital's Rule", dpp: "#", ppt: "#", yt: "#" },
-    { id: 2, section: "Algebra", chapter: "Matrices", topic: "Adjoint of Matrix", dpp: "#", ppt: "#", yt: "#" },
-    { id: 3, section: "Geometry", chapter: "Circles", topic: "Tangent Properties", dpp: "#", ppt: "#", yt: "#" }
-];
+const data = {
+    "Geometry": ["Straight Line", "Circle", "Parabola", "Ellipse", "Hyperbola", "Vector", "3D"],
+    "Calculus": ["Set Theory", "Relation", "Function", "Inverse Trigonometry", "Limit & Continuity", "MOD", "AOD", "Integration (Ind)", "Integration (Def)", "Area", "Diff Equation"],
+    "Algebra": ["Quadratic", "Trigonometry", "Sequence", "Binomial", "P&C", "Probability", "Matrices", "Determinants", "Complex", "Statistics"]
+};
 
-const resourceList = document.getElementById('resourceList');
-const searchInput = document.getElementById('searchInput');
-const filterBtns = document.querySelectorAll('.filter-btn');
-
-let currentSection = "All";
-
-function displayResources(filterText = "") {
-    resourceList.innerHTML = "";
-    
-    const filtered = educationData.filter(item => {
-        const matchesSection = currentSection === "All" || item.section === currentSection;
-        const matchesSearch = item.topic.toLowerCase().includes(filterText.toLowerCase()) || 
-                              item.chapter.toLowerCase().includes(filterText.toLowerCase());
-        return matchesSection && matchesSearch;
-    });
-
-    if (filtered.length === 0) {
-        resourceList.innerHTML = `<p class="no-results">No topics found. Try another search!</p>`;
-        return;
-    }
-
-    filtered.forEach(item => {
-        resourceList.innerHTML += `
-            <div class="card">
-                <div class="card-info">
-                    <span class="badge">${item.section}</span>
-                    <h3>${item.topic}</h3>
-                    <p>Chapter: ${item.chapter}</p>
-                </div>
-                <div class="card-links">
-                    <a href="${item.dpp}" class="btn dpp">📄 DPP</a>
-                    <a href="${item.ppt}" class="btn ppt">📊 PPT</a>
-                    <a href="${item.yt}" class="btn yt">▶️ Video</a>
-                </div>
-            </div>
-        `;
-    });
+// Function to move from Sections to Chapters
+function selectSection(name) {
+    localStorage.setItem('selectedSection', name);
+    window.location.href = 'chapters.html';
 }
 
-// Search Event
-searchInput.addEventListener('input', (e) => displayResources(e.target.value));
+// Function to move from Chapters to Topics
+function selectChapter(name) {
+    localStorage.setItem('selectedChapter', name);
+    window.location.href = 'topics.html';
+}
 
-// Filter Button Events
-filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentSection = btn.getAttribute('data-section');
-        displayResources(searchInput.value);
-    });
-});
-
-// Initial Load
-displayResources();
+// Function to move to final Resources
+function selectTopic(name) {
+    localStorage.setItem('selectedTopic', name);
+    window.location.href = 'resources.html';
+}
