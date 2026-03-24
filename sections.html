@@ -55,17 +55,7 @@
         </div>
     </main>
 
-    <footer id="footer">
-        <div class="footer-content">
-            <h3>Aapke Sarthi</h3>
-            <p>Guided by VKS Sir (IIT Kharagpur Alumnus)</p>
-            <div class="social-links">
-                <a href="https://youtube.com/@aapkesarthi">YouTube</a>
-                <a href="https://t.me/yourlink">Telegram</a>
-                <a href="https://instagram.com/travellingvks">Instagram</a>
-            </div>
-        </div>
-    </footer>
+
 
     <script>
         function selectSection(sectionName) {
@@ -75,6 +65,46 @@
             window.location.href = 'chapters.html';
         }
     </script>
+
+
+    <footer id="footer">
+    <div class="footer-content">
+        <h3>Aapke Sarthi</h3>
+        <p>IIT-JEE Mathematics by VKS Sir (IIT Kharagpur Alumnus)</p>
+        <div class="social-links">
+            <a href="https://youtube.com/@aapkesarthi" target="_blank">YouTube</a>
+            <a href="https://t.me/yourtelegram" target="_blank">Telegram</a>
+            <a href="https://instagram.com/travellingvks" target="_blank">Instagram</a>
+        </div>
+    </div>
+</footer>
+
+<div class="fab-wrapper">
+    <div class="fab-menu" id="fabMenu">
+        <a href="https://t.me/yourtelegram" target="_blank" class="fab-item">Join Telegram 📢</a>
+        <a href="https://instagram.com/travellingvks" target="_blank" class="fab-item">Ask on Instagram 📸</a>
+        <a href="mailto:vksir@example.com" class="fab-item">Email VKS Sir ✉️</a>
+    </div>
+    <div class="fab-main" id="fabMainBtn">
+        <span id="fabIcon">💬</span>
+    </div>
+</div>
+
+<script>
+    const btn = document.getElementById('fabMainBtn');
+    const menu = document.getElementById('fabMenu');
+    const icon = document.getElementById('fabIcon');
+
+    btn.addEventListener('click', function() {
+        if (menu.style.display === 'flex') {
+            menu.style.display = 'none';
+            icon.innerText = "💬";
+        } else {
+            menu.style.display = 'flex';
+            icon.innerText = "✕";
+        }
+    });
+</script>
 
 </body>
 </html>
