@@ -199,25 +199,7 @@ h1 {
     box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
 }
 
-.about-section {
-    padding: 60px 5%;
-}
 
-.about-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 30px;
-    margin-top: 20px;
-}
-
-.stat-card {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: var(--shadow);
-    border-top: 4px solid var(--primary);
-}
 
 /* --- 4. Selection Grids (Sections & Chapters) --- */
 .page-header {
@@ -396,4 +378,58 @@ h1 {
         flex: 1;
         text-align: center;
     }
+}
+
+
+/* About Page Specific Design */
+.about-header {
+    text-align: center;
+    padding: 60px 0 40px;
+}
+
+.badge-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.badge {
+    background: #eff6ff;
+    color: #2563eb;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border: 1px solid #dbeafe;
+}
+
+.about-content-box {
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.about-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    line-height: 1.8;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.about-card h3 {
+    color: #1e293b;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.quote-box {
+    margin-top: 30px;
+    padding: 20px;
+    border-left: 4px solid #2563eb;
+    background: #f8fafc;
+    font-style: italic;
+    color: #475569;
+    font-weight: 500;
 }
