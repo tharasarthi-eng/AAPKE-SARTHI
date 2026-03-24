@@ -49,44 +49,44 @@
         </div>
     </section>
 
-    <footer id="footer">
-        <div class="footer-content">
-            <h3>Contact & Connect</h3>
-            <div class="social-links">
-                <a href="https://youtube.com/@aapkesarthi" target="_blank">YouTube</a>
-                <a href="https://t.me/yourtelegram" target="_blank">Telegram</a>
-                <a href="https://instagram.com/travellingvks" target="_blank">Instagram</a>
-            </div>
-            <p>© 2026 Aapke Sarthi | Dedicated to JEE Excellence</p>
+<footer id="footer">
+    <div class="footer-content">
+        <h3>Aapke Sarthi</h3>
+        <p>IIT-JEE Mathematics by VKS Sir (IIT Kharagpur Alumnus)</p>
+        <div class="social-links">
+            <a href="https://youtube.com/@aapkesarthi" target="_blank">YouTube</a>
+            <a href="https://t.me/yourtelegram" target="_blank">Telegram</a>
+            <a href="https://instagram.com/travellingvks" target="_blank">Instagram</a>
         </div>
-    </footer>
+    </div>
+</footer>
+
 <div class="fab-wrapper">
     <div class="fab-menu" id="fabMenu">
         <a href="https://t.me/yourtelegram" target="_blank" class="fab-item">Join Telegram 📢</a>
         <a href="https://instagram.com/travellingvks" target="_blank" class="fab-item">Ask on Instagram 📸</a>
         <a href="mailto:vksir@example.com" class="fab-item">Email VKS Sir ✉️</a>
     </div>
-    
     <div class="fab-main" id="fabMainBtn">
         <span id="fabIcon">💬</span>
     </div>
 </div>
 
 <script>
-    const fabBtn = document.getElementById('fabMainBtn');
-    const fabMenu = document.getElementById('fabMenu');
-    const fabIcon = document.getElementById('fabIcon');
+    const btn = document.getElementById('fabMainBtn');
+    const menu = document.getElementById('fabMenu');
+    const icon = document.getElementById('fabIcon');
 
-    fabBtn.addEventListener('click', function() {
-        // Toggle the 'active' class
-        if (fabMenu.style.display === 'flex') {
-            fabMenu.style.display = 'none';
-            fabIcon.innerText = "💬";
+    btn.addEventListener('click', function() {
+        if (menu.style.display === 'flex') {
+            menu.style.display = 'none';
+            icon.innerText = "💬";
         } else {
-            fabMenu.style.display = 'flex';
-            fabIcon.innerText = "✕";
+            menu.style.display = 'flex';
+            icon.innerText = "✕";
         }
     });
 </script>
+    
 </body>
 </html>
