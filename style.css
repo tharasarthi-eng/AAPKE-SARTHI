@@ -394,7 +394,65 @@ h1 {
     border: 2px solid #2563eb;
     background: #f0f7ff;
 }
+/* JEE Advanced Specifics */
+.adv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
 
+.adv-card {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 12px;
+    border: 2px solid #f1f5f9;
+    text-align: left; /* Advanced looks better with formal alignment */
+    transition: 0.3s;
+    position: relative;
+}
+
+.adv-card:hover {
+    border-color: #1e293b; /* Darker border for Advanced */
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+.adv-card.highlight {
+    background: #1e293b; /* Dark theme for the latest Advanced year */
+    color: white;
+}
+
+.adv-card.highlight h3 { color: white; }
+.adv-card.highlight p { color: #94a3b8; }
+
+.adv-tag {
+    font-size: 0.7rem;
+    background: #f59e0b; /* Amber/Gold for Advanced highlights */
+    color: #000;
+    padding: 3px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.adv-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.adv-card.highlight .adv-btn {
+    background: white;
+    color: #1e293b;
+}
 /* Formula Sheet Specifics */
 .formula-grid {
     display: grid;
