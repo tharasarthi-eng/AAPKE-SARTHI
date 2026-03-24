@@ -332,6 +332,66 @@ h1 {
     gap: 5px;
 }
 
+/* Topic Page Specific Styles */
+.topic-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 30px;
+    max-width: 800px; /* Keeps the list centered and readable */
+}
+
+.topic-row {
+    background: white;
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    border-radius: 12px;
+    border: 1px solid #eef2f6;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.topic-row:hover {
+    background: #f0f7ff;
+    border-color: #2563eb;
+    transform: scale(1.02);
+}
+
+.topic-number {
+    background: #2563eb;
+    color: white;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.topic-info h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #1e293b;
+}
+
+.topic-arrow {
+    margin-left: auto;
+    color: #cbd5e1;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.topic-row:hover .topic-arrow {
+    color: #2563eb;
+}
+
+.subtitle {
+    color: #64748b;
+    font-size: 1rem;
+}
 /* --- 5. Resource Page (Final Destination) --- */
 .resource-card-container {
     max-width: 600px;
