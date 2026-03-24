@@ -7,70 +7,75 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   <nav class="navbar">
-    <a href="index.html" style="text-decoration: none;">
-        <div class="logo">Aapke Sarthi</div>
-    </a>
-    
-    <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About VKS Sir</a></li>
-        <li><a href="sections.html">Start Learning</a></li>
-        <li><a href="resources-page.html">RESOURCES</a></li>
-        <li><a href="#footer">Contact</a></li>
-    </ul>
-</nav>
-    
-<div class="container">
-    <header class="page-header">
-        <button onclick="location.href='sections.html'" class="back-btn">← Back to Sections</button>
-        <h1 id="sectionTitle">Loading...</h1>
-        <p>Select a chapter to see topics</p>
-    </header>
 
-    <div id="chapterGrid" class="grid-list">
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">
+            <div class="logo">Aapke Sarthi</div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About VKS Sir</a></li>
+            <li><a href="sections.html" class="active-link">Start Learning</a></li>
+            <li><a href="resources-page.html">RESOURCES</a></li>
+            <li><a href="#footer">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <div class="breadcrumb">
+            <a href="sections.html">← Back to Sections</a>
         </div>
-</div>
-
-<script>
-    // 1. The Data Mapping
-    const chapterData = {
-        "Geometry": ["Straight line", "Circle", "Parabola", "Ellipse", "Hyperbola", "Vector", "3D"],
-        "Calculus": [
-            "Set theory", "Relation", "Function", "Inverse trigonometry function", 
-            "Limit, continuity and differentiability", "Method of differentiation", 
-            "Application Of Derivatives", "Integration (indefinite)", 
-            "Integration (definite)", "Application of integration", "Differentiatial equation"
-        ],
-        "Algebra": [
-            "Quadratic equations", "Trigonometry ration and equtions", 
-            "Sequence and series", "Binomial theorem", 
-            "Permutations and combinations", "Probability", 
-            "Matrices", "Determinants", "Complex", "Statistics"
-        ],
-        "Miscellaneous": ["General Maths", "Logarithms"]
-    };
-
-    // 2. Get the saved section from memory
-    const selectedSection = localStorage.getItem('selectedSection') || "Geometry";
-    document.getElementById('sectionTitle').innerText = selectedSection;
-
-    // 3. Display the Chapters
-    const grid = document.getElementById('chapterGrid');
-    const chapters = chapterData[selectedSection];
-
-    chapters.forEach(chap => {
-        const btn = document.createElement('button');
-        btn.className = 'list-item-btn';
-        btn.innerHTML = `<span>${chap}</span> <span class="arrow">→</span>`;
         
-        btn.onclick = () => {
-            // Save the chapter name for the topics page
-            localStorage.setItem('selectedChapter', chap);
-            window.location.href = 'topics.html';
+        <h1 id="sectionTitle">Chapters</h1>
+        <p>Select a chapter to view topic-wise solutions and DPPs.</p>
+
+        <div id="chapterList" class="chapter-grid"></div>
+    </main>
+
+    <footer id="footer">
+        <div class="footer-content">
+            <h3>Aapke Sarthi</h3>
+            <div class="social-links">
+                <a href="#">YouTube</a>
+                <a href="#">Telegram</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Your Chapter Data
+        const data = {
+            "Geometry": ["Straight Line", "Circle", "Parabola", "Ellipse", "Hyperbola", "Vector", "3D"],
+            "Calculus": ["Set Theory", "Relation", "Function", "Inverse Trigonometry", "Limit, Continuity & Differentiability", "Method of Differentiation", "Application of Derivatives", "Integration (Indefinite)", "Integration (Definite)", "Application of Integration", "Differential Equation"],
+            "Algebra": ["Quadratic Equations", "Trigonometry Ratio & Equations", "Sequence & Series", "Binomial Theorem", "Permutations & Combinations", "Probability", "Matrices", "Determinants", "Complex Numbers", "Statistics"],
+            "Miscellaneous": ["Short Tricks", "Calculations", "Special Series"]
         };
-        
-        grid.appendChild(btn);
+
+        // 2. Logic to display the right chapters
+        const sectionName = localStorage.getItem('selectedSection') || "Geometry";
+        document.getElementById('sectionTitle').innerText = sectionName + " Chapters";
+
+        const listContainer = document.getElementById('chapterList');
+        const chapters = data[sectionName];
+
+        chapters.forEach(chapter => {
+            const card = document.createElement('div');
+            card.className = 'chapter-card';
+            card.innerHTML = `
+                <h3>${chapter}</h3>
+                <span>View 10 Topics →</span>
+            `;
+            card.onclick = () => {
+                localStorage.setItem('selectedChapter', chapter);
+                window.location.href = 'topics.html';
+            };
+            listContainer.appendChild(card);
+        });
+    </script>
+
+</body>
+</html>
     });
 </script>
 </body>
