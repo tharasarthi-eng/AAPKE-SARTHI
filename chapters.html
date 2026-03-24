@@ -7,57 +7,57 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header class="page-header">
-            <button onclick="location.href='sections.html'" class="back-btn">← Back to Sections</button>
-            <h1 id="sectionTitle">Section Name</h1>
-            <p>Choose a chapter to begin</p>
-        </header>
+<div class="container">
+    <header class="page-header">
+        <button onclick="location.href='sections.html'" class="back-btn">← Back to Sections</button>
+        <h1 id="sectionTitle">Loading...</h1>
+        <p>Select a chapter to see topics</p>
+    </header>
 
-        <div id="chapterGrid" class="grid-list">
-            </div>
-    </div>
+    <div id="chapterGrid" class="grid-list">
+        </div>
+</div>
 
-    <script>
-        // Data Object based on your requirements
-        const chapterData = {
-            "Geometry": [
-                "Straight line", "Circle", "Parabola", "Ellipse", 
-                "Hyperbola", "Vector", "3D"
-            ],
-            "Calculus": [
-                "Set theory", "Relation", "Function", "Inverse trigonometry function", 
-                "Limit, continuity and differentiability", "Method of differentiation", 
-                "Application Of Derivatives", "Integration (indefinite)", 
-                "Integration (definite)", "Application of integration", "Differentiatial equation"
-            ],
-            "Algebra": [
-                "Quadratic equations", "Trigonometry ration and equtions", 
-                "Sequence and series", "Binomial theorem", 
-                "Permutations and combinations", "Probability", 
-                "Matrices", "Determinants", "Complex", "Statistics"
-            ],
-            "Miscellaneous": ["General Maths", "Logarithms", "Mathematical Reasoning"]
+<script>
+    // 1. The Data Mapping
+    const chapterData = {
+        "Geometry": ["Straight line", "Circle", "Parabola", "Ellipse", "Hyperbola", "Vector", "3D"],
+        "Calculus": [
+            "Set theory", "Relation", "Function", "Inverse trigonometry function", 
+            "Limit, continuity and differentiability", "Method of differentiation", 
+            "Application Of Derivatives", "Integration (indefinite)", 
+            "Integration (definite)", "Application of integration", "Differentiatial equation"
+        ],
+        "Algebra": [
+            "Quadratic equations", "Trigonometry ration and equtions", 
+            "Sequence and series", "Binomial theorem", 
+            "Permutations and combinations", "Probability", 
+            "Matrices", "Determinants", "Complex", "Statistics"
+        ],
+        "Miscellaneous": ["General Maths", "Logarithms"]
+    };
+
+    // 2. Get the saved section from memory
+    const selectedSection = localStorage.getItem('selectedSection') || "Geometry";
+    document.getElementById('sectionTitle').innerText = selectedSection;
+
+    // 3. Display the Chapters
+    const grid = document.getElementById('chapterGrid');
+    const chapters = chapterData[selectedSection];
+
+    chapters.forEach(chap => {
+        const btn = document.createElement('button');
+        btn.className = 'list-item-btn';
+        btn.innerHTML = `<span>${chap}</span> <span class="arrow">→</span>`;
+        
+        btn.onclick = () => {
+            // Save the chapter name for the topics page
+            localStorage.setItem('selectedChapter', chap);
+            window.location.href = 'topics.html';
         };
-
-        const section = localStorage.getItem('selectedSection') || "Geometry";
-        document.getElementById('sectionTitle').innerText = section;
-
-        const chapterGrid = document.getElementById('chapterGrid');
-        const chapters = chapterData[section] || [];
-
-        chapters.forEach(chapName => {
-            const btn = document.createElement('button');
-            btn.className = 'list-item-btn';
-            btn.innerHTML = `<span>${chapName}</span> <span class="arrow">→</span>`;
-            
-            btn.onclick = () => {
-                localStorage.setItem('selectedChapter', chapName);
-                window.location.href = 'topics.html';
-            };
-            
-            chapterGrid.appendChild(btn);
-        });
-    </script>
+        
+        grid.appendChild(btn);
+    });
+</script>
 </body>
 </html>
