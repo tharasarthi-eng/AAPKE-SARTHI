@@ -60,28 +60,33 @@
             <p>© 2026 Aapke Sarthi | Dedicated to JEE Excellence</p>
         </div>
     </footer>
-<div class="fab-container">
-    <a href="https://t.me/yourtelegram" target="_blank" class="fab-main">
-        💬
-    </a>
-</div>
 <div class="fab-wrapper">
     <div class="fab-menu" id="fabMenu">
-        <a href="https://t.me/yourtelegram" target="_blank" class="fab-item telegram">
-            <span>Join Telegram</span> 📢
-        </a>
-        <a href="https://instagram.com/travellingvks" target="_blank" class="fab-item instagram">
-            <span>Ask on Instagram</span> 📸
-        </a>
-        <a href="mailto:your@email.com" class="fab-item email">
-            <span>Email VKS Sir</span> ✉️
-        </a>
+        <a href="https://t.me/yourtelegram" target="_blank" class="fab-item">Join Telegram 📢</a>
+        <a href="https://instagram.com/travellingvks" target="_blank" class="fab-item">Ask on Instagram 📸</a>
+        <a href="mailto:vksir@example.com" class="fab-item">Email VKS Sir ✉️</a>
     </div>
     
-    <div class="fab-main" onclick="toggleFab()">
+    <div class="fab-main" id="fabMainBtn">
         <span id="fabIcon">💬</span>
     </div>
 </div>
-    
+
+<script>
+    const fabBtn = document.getElementById('fabMainBtn');
+    const fabMenu = document.getElementById('fabMenu');
+    const fabIcon = document.getElementById('fabIcon');
+
+    fabBtn.addEventListener('click', function() {
+        // Toggle the 'active' class
+        if (fabMenu.style.display === 'flex') {
+            fabMenu.style.display = 'none';
+            fabIcon.innerText = "💬";
+        } else {
+            fabMenu.style.display = 'flex';
+            fabIcon.innerText = "✕";
+        }
+    });
+</script>
 </body>
 </html>
