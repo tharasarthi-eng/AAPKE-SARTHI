@@ -522,3 +522,70 @@ h1 {
 .download-btn:hover {
     background: #1d4ed8;
 }
+/* FAB Container */
+.fab-wrapper {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+}
+
+/* Main Circular Button */
+.fab-main {
+    width: 60px;
+    height: 60px;
+    background: #2563eb;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fab-main:hover { transform: scale(1.1); }
+
+/* Hidden Menu Styling */
+.fab-menu {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.fab-menu.active {
+    display: flex;
+    animation: slideUp 0.3s ease-out;
+}
+
+/* Individual Menu Items */
+.fab-item {
+    text-decoration: none;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    color: #1e293b;
+    font-weight: 600;
+    font-size: 14px;
+    border: 1px solid #e2e8f0;
+    white-space: nowrap;
+}
+
+.fab-item:hover { background: #f8fafc; transform: translateX(-5px); }
+
+/* Animations */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
