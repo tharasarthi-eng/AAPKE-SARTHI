@@ -58,23 +58,22 @@
         const topics = topicData[chapterName] || Array.from({length: 10}, (_, i) => `Topic ${i + 1}`);
 
         topics.forEach((topic, index) => {
-            const card = document.createElement('div');
-            card.className = 'topic-item';
-            
-            // Note: Replace '#' with your actual Drive/YouTube links later
-            card.innerHTML = `
-                <div class="topic-main">
-                    <span class="topic-num">${index + 1}</span>
-                    <h3>${topic}</h3>
-                </div>
-                <div class="resource-group">
-                    <a href="#" class="res-btn dpp-btn" title="Download DPP">📄 DPP</a>
-                    <a href="#" class="res-btn ppt-btn" title="View PPT">📊 PPT</a>
-                    <a href="#" class="res-btn yt-btn" title="Watch Video">▶ Video</a>
-                </div>
-            `;
-            listContainer.appendChild(card);
-        });
+    const card = document.createElement('div');
+    card.className = 'topic-item'; // This MUST match the CSS
+    
+    card.innerHTML = `
+        <div class="topic-main">
+            <span class="topic-num">${index + 1}</span>
+            <h3>${topic}</h3>
+        </div>
+        <div class="resource-group">
+            <a href="#" class="res-btn dpp-btn">📄 DPP</a>
+            <a href="#" class="res-btn ppt-btn">📊 PPT</a>
+            <a href="#" class="res-btn yt-btn">▶ Video</a>
+        </div>
+    `;
+    listContainer.appendChild(card);
+});
     </script>
 
 </body>
