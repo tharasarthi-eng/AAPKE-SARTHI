@@ -87,9 +87,12 @@
         const listContainer = document.getElementById('topicList');
         const topics = topicData[chapterName] || Array.from({length: 10}, (_, i) => `Topic ${i + 1}`);
 
-        topics.forEach((topic, index) => {
+topics.forEach((topic, index) => {
+    // Look up the links for this specific topic in our data.js
+    const links = AAPKE_SARTHI_DATA[topic] || { dpp: "#", ppt: "#", video: "#" };
+
     const card = document.createElement('div');
-    card.className = 'topic-item'; // This MUST match the CSS
+    card.className = 'topic-item';
     
     card.innerHTML = `
         <div class="topic-main">
@@ -97,9 +100,9 @@
             <h3>${topic}</h3>
         </div>
         <div class="resource-group">
-            <a href="#" class="res-btn dpp-btn">📄 DPP</a>
-            <a href="#" class="res-btn ppt-btn">📊 PPT</a>
-            <a href="#" class="res-btn yt-btn">▶ Video</a>
+            <a href="${links.dpp}" target="_blank" class="res-btn dpp-btn">📄 DPP</a>
+            <a href="${links.ppt}" target="_blank" class="res-btn ppt-btn">📊 PPT</a>
+            <a href="${links.video}" target="_blank" class="res-btn yt-btn">▶ Video</a>
         </div>
     `;
     listContainer.appendChild(card);
