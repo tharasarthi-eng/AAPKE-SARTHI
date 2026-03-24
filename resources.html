@@ -1,12 +1,40 @@
-<div class="resource-container">
-    <h2 id="topicHeading">Topic Name</h2>
-    <p id="subHeading">Chapter > Section</p>
-    
-    <div class="button-stack">
-        <a href="#" class="res-btn dpp">📄 Questions DPP (PDF)</a>
-        <a href="#" class="res-btn ppt">📊 Solution PPT (Drive)</a>
-        <a href="#" class="res-btn video">▶️ Video Solutions Playlist</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources | Aapke Sarthi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="resource-card-container">
+        <div class="resource-header">
+            <h2 id="finalTopic">Topic Name</h2>
+            <p id="pathTracker" class="breadcrumb"></p>
+        </div>
+
+        <div class="button-stack">
+            <a href="#" target="_blank" class="res-link dpp-btn">
+                <span class="icon">📄</span> Questions DPP (PDF)
+            </a>
+            <a href="#" target="_blank" class="res-link ppt-btn">
+                <span class="icon">📊</span> Solution PPT (Drive)
+            </a>
+            <a href="#" target="_blank" class="res-link yt-btn">
+                <span class="icon">▶️</span> Video Solutions Playlist
+            </a>
+        </div>
+
+        <button onclick="history.back()" class="back-link-text">Explore more topics</button>
     </div>
-    
-    <button onclick="history.back()" class="back-link">← Go Back</button>
-</div>
+
+    <script>
+        const sec = localStorage.getItem('selectedSection');
+        const chap = localStorage.getItem('selectedChapter');
+        const top = localStorage.getItem('selectedTopic');
+
+        document.getElementById('finalTopic').innerText = top;
+        document.getElementById('pathTracker').innerText = `${sec} > ${chap}`;
+    </script>
+</body>
+</html>
