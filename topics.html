@@ -8,52 +8,99 @@
 </head>
 <body>
 
-  <nav class="navbar">
-    <a href="index.html" style="text-decoration: none;">
-        <div class="logo">Aapke Sarthi</div>
-    </a>
-    
-    <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About VKS Sir</a></li>
-        <li><a href="sections.html">Start Learning</a></li>
-        <li><a href="resources-page.html">RESOURCES</a></li>
-        <li><a href="#footer">Contact</a></li>
-    </ul>
-</nav>
-    
-    <div class="container">
-        <header class="page-header">
-            <button onclick="history.back()" class="back-btn">← Back to Chapters</button>
-            <h1 id="chapterTitle">Chapter Name</h1>
-            <p>Select a topic to access resources</p>
-        </header>
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">
+            <div class="logo">AAPKE SARTHI</div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About VKS Sir</a></li>
+            <li><a href="sections.html" class="active-link">Start Learning</a></li>
+            <li><a href="resources-page.html">RESOURCES</a></li>
+            <li><a href="#footer">Contact</a></li>
+        </ul>
+    </nav>
 
-        <div id="topicGrid" class="grid-list">
+    <main class="container">
+        <div class="breadcrumb">
+            <a href="chapters.html">← Back to Chapters</a>
+        </div>
+        
+        <h1 id="chapterTitle">Chapter Name</h1>
+        <p class="subtitle">Select a topic to access DPPs, PPTs, and Video Solutions.</p>
+
+        <div id="topicList" class="topic-column">
             </div>
-    </div>
+    </main>
 
-    <script>
-        // Get the chapter name the user clicked on the previous page
-        const selectedChapter = localStorage.getItem('selectedChapter') || "Mathematics";
-        document.getElementById('chapterTitle').innerText = selectedChapter;
+    <footer id="footer">
+        <div class="footer-content">
+            <h3>Aapke Sarthi</h3>
+            <p>IIT-JEE Mathematics by VKS Sir</p>
+        </div>
+    </footer>
 
-        const topicGrid = document.getElementById('topicGrid');
+<script>
+    // COMPLETE TOPIC DATABASE FOR AAPKE SARTHI
+    const topicData = {
+        // --- GEOMETRY SECTION ---
+        "Straight Line": ["Distance & Section Formula", "Centroid, Incenter & Orthocenter", "Slope & Angle between Lines", "Forms of Equation of Line", "Distance of Point from Line", "Concurrency of Lines", "Angle Bisectors", "Family of Lines", "Locus Problems", "Pair of Straight Lines"],
+        "Circle": ["Standard Equations", "Point Power & Position", "Line & Circle Interaction", "Tangent Equations", "Normal Equations", "Length of Tangent & Chord", "Chord of Contact", "Director Circle", "Common Tangents", "Family of Circles"],
+        "Parabola": ["Standard Terminology", "Focal Chord Properties", "Position of Point", "Tangent Forms", "Normal Properties", "Sub-tangent & Sub-normal", "Chord of Contact", "Reflective Property", "Intersection of Parabola & Line", "Parametric Coordinates"],
+        "Ellipse": ["Standard Equation & Eccentricity", "Auxiliary Circle", "Position of Point", "Tangent Properties", "Normal Properties", "Director Circle", "Chords & Midpoints", "Foci & Directrix Relations", "Parametric Form", "Standard Results"],
+        "Hyperbola": ["Standard & Conjugate Hyperbola", "Asymptotes", "Rectangular Hyperbola", "Tangent Equations", "Normal Equations", "Eccentricity Relations", "Director Circle", "Focal Properties", "Intersection with Line", "Reflection Properties"],
+        "Vector": ["Addition & Scalar Multiplication", "Section Formula in Vectors", "Dot Product & Projections", "Cross Product (Area)", "Scalar Triple Product (STP)", "Vector Triple Product (VTP)", "Linear Independence", "Collinearity & Coplanarity", "Vector Equations", "Geometrical Applications"],
+        "3D": ["Direction Cosines & Ratios", "Equations of a Line", "Shortest Distance between Lines", "Angle between Lines", "Equation of a Plane", "Distance of Point from Plane", "Line & Plane Interaction", "Angle between Planes", "Coplanar Lines", "Sphere Basics"],
 
-        // Generate 10 Topics
-        for (let i = 1; i <= 10; i++) {
-            const topicName = `Topic ${i}`;
-            const btn = document.createElement('button');
-            btn.className = 'list-item-btn';
-            btn.innerHTML = `<span>${topicName}</span> <span class="arrow">→</span>`;
-            
-            btn.onclick = () => {
-                localStorage.setItem('selectedTopic', topicName);
-                window.location.href = 'resources.html';
-            };
-            
-            topicGrid.appendChild(btn);
-        }
-    </script>
+        // --- CALCULUS SECTION ---
+        "Set Theory": ["Types of Sets", "Subsets & Power Sets", "Venn Diagrams", "Union & Intersection", "Laws of Algebra of Sets", "Cartesian Product", "Cardinal Number Problems", "Complement of Set", "Difference & Symmetric Diff", "De-Morgan’s Laws"],
+        "Relation": ["Ordered Pairs", "Domain & Range", "Reflexive Relations", "Symmetric Relations", "Transitive Relations", "Equivalence Relations", "Inverse of Relation", "Composite Relations", "Total Number of Relations", "Functions as Relations"],
+        "Function": ["Domain & Range", "One-One & Onto (Mapping)", "Composite Functions", "Inverse Functions", "Even & Odd Functions", "Periodic Functions", "Functional Equations", "Greatest Integer & Fractional Part", "Modulus & Signum Functions", "Logarithmic & Exponential"],
+        "Inverse Trigonometry": ["Principal Value Branch", "Domain & Range of ITF", "Properties of ITF", "Conversion Formulas", "Sum & Difference Formulas", "Multiple Angle Formulas", "ITF Equations", "Series involving ITF", "Graphs of ITF", "Simplification of Expressions"],
+        "Limit, Continuity & Differentiability": ["L'Hopital's Rule", "Standard Limits", "Expansion Series", "Infinity Form Limits", "LHL & RHL (Continuity)", "Intermediate Value Theorem", "Differentiability Checks", "Relation between Cont. & Diff.", "Graphical Differentiability", "Functional Continuity"],
+        "Method of Differentiation": ["Chain Rule", "Implicit Differentiation", "Logarithmic Differentiation", "Parametric Differentiation", "Higher Order Derivatives", "Differentiation of ITF", "Substitution Method", "Function w.r.t Function", "Determinant Differentiation", "L'Hopital Application"],
+        "Application of Derivatives": ["Rate of Change", "Tangent & Normal", "Monotonicity (Inc/Dec)", "Maxima & Minima (Local)", "Global Maxima & Minima", "Rolle's Theorem", "Lagrange’s Mean Value Theorem", "Concavity & Inflection", "Approximation & Errors", "Geometrical Problems"],
+        "Integration (Indefinite)": ["Basic Integration Formulas", "Integration by Substitution", "Integration by Parts (ILATE)", "Partial Fractions", "Trigonometric Integrals", "Special Integral Forms", "Quadratic in Denominator", "Linear/Quadratic Form", "Euler's Substitution", "Reduction Formulas"],
+        "Integration (Definite)": ["Fundamental Theorem", "Properties of Definite Integrals", "King’s Property", "Piecewise Function Integration", "Integration as Limit of Sum", "Leibniz Rule", "Wallis Formula", "Estimation of Integrals", "Symmetry in Definite", "Reduction in Definite"],
+        "Application of Integration": ["Area under Curve", "Area between two Curves", "Shaded Region Logic", "Symmetrical Area Calculations", "Area with Modulus", "Area with Inequalities", "Horizontal vs Vertical Strips", "Curves with Loops", "Volume of Revolution (Basics)", "JEE Advanced Mixed Problems"],
+        "Differential Equation": ["Order & Degree", "Formation of DE", "Variable Separable Form", "Homogeneous DE", "Linear DE (Integrating Factor)", "Bernoulli’s Equation", "Exact Differential Equations", "Orthogonal Trajectories", "Physical Applications (Growth/Decay)", "Second Order Intro"],
+
+        // --- ALGEBRA SECTION ---
+        "Quadratic Equations": ["Nature of Roots", "Relation between Roots & Coeff", "Common Roots", "Location of Roots", "Transformation of Equations", "Maximum & Minimum Value", "Descartes' Rule of Signs", "Quadratic Inequalities", "Theory of Equations (Cubic/Higher)", "Range of Rational Functions"],
+        "Trigonometry Ratio & Equations": ["T-Ratios of Compound Angles", "Transformation Formulas", "Multiple & Sub-multiple Angles", "Conditional Identities", "Graphs of T-Ratios", "General Solutions of Equations", "Trigonometric Inequalities", "Height & Distance", "Max/Min of T-Expressions", "Series in Trigonometry"],
+        "Sequence & Series": ["Arithmetic Progression (AP)", "Geometric Progression (GP)", "Harmonic Progression (HP)", "AGP Series", "Sum of n terms (Sigma)", "Mean Relations (AM-GM-HM)", "Infinite GP Sum", "Special Series (Method of Diff)", "Telescopic Sums", "Logarithmic & Exponential Series"],
+        "Binomial Theorem": ["General Term Expansion", "Middle Term", "Binomial Coefficients Properties", "Sum of Coefficients", "Greatest Term", "Binomial for any Index", "Multinomial Theorem", "Remainder & Divisibility", "Approximations", "Double Summation"],
+        "Permutations & Combinations": ["Fundamental Principle of Counting", "Linear Permutations", "Circular Permutations", "Selection (Combinations)", "Constrained Permutations", "Distribution of Objects", "Dearrangement Theorem", "Grid Path Problems", "Division into Groups", "Rank of Word"],
+        "Probability": ["Classical & Axiomatic Definition", "Conditional Probability", "Total Probability Theorem", "Bayes' Theorem", "Independent Events", "Binomial Distribution", "Bernoulli Trials", "Probability Distribution (Mean/Var)", "Inclusion-Exclusion", "Geometrical Probability"],
+        "Matrices": ["Types & Operations", "Transpose & Trace", "Symmetric & Skew-Symmetric", "Orthogonal Matrix", "Adjoint of Matrix", "Inverse of Matrix", "Elementary Row Operations", "Rank & Consistency", "Matrix Equations", "Cayley-Hamilton Theorem"],
+        "Determinants": ["Expansion & Properties", "Minors & Cofactors", "Cramer's Rule", "Product of Determinants", "Differentiation of Det", "Integration of Det", "System of Linear Equations", "Vanishing Determinant Conditions", "Area of Triangle via Det", "Special Determinants"],
+        "Complex Numbers": ["Algebra of Complex Numbers", "Argand Plane & Modulus", "Argument & Amplitude", "Euler & De-Moivre's Form", "Roots of Unity (Cube/nth)", "Geometry (Rotation)", "Equation of Circle & Line", "Conjugate Properties", "Triangle Inequality", "Logarithm of Complex"],
+        "Statistics": ["Mean, Median & Mode", "Measures of Dispersion", "Standard Deviation & Variance", "Combined Mean/Variance", "Coefficient of Variation", "Analysis of Frequency Dist.", "Probability Distribution Link", "Properties of SD", "Deviation from Mean", "JEE Specific Problems"]
+    };
+
+    const chapterName = localStorage.getItem('selectedChapter') || "Straight Line";
+    document.getElementById('chapterTitle').innerText = chapterName;
+
+    const listContainer = document.getElementById('topicList');
+    const topics = topicData[chapterName] || Array.from({length: 10}, (_, i) => `Topic ${i + 1}`);
+
+    topics.forEach((topic, index) => {
+        const row = document.createElement('div');
+        row.className = 'topic-row';
+        row.innerHTML = `
+            <div class="topic-number">${index + 1}</div>
+            <div class="topic-info">
+                <h3>${topic}</h3>
+            </div>
+            <div class="topic-arrow">→</div>
+        `;
+        row.onclick = () => {
+            localStorage.setItem('selectedTopic', topic);
+            window.location.href = 'final-resources.html';
+        };
+        listContainer.appendChild(row);
+    });
+</script>
+
 </body>
 </html>
