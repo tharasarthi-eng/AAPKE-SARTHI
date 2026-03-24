@@ -1,13 +1,11 @@
-body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f7f6; margin: 0; padding: 20px; color: #333; }
-header { text-align: center; margin-bottom: 30px; }
-h1 { color: #2563eb; margin-bottom: 5px; }
-#searchInput { width: 100%; max-width: 600px; padding: 15px; border-radius: 10px; border: 2px solid #ddd; font-size: 16px; display: block; margin: 0 auto; }
-#sectionFilters { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
-.filter-btn { padding: 8px 20px; border-radius: 20px; border: 1px solid #ccc; cursor: pointer; background: white; }
-.filter-btn.active { background: #2563eb; color: white; border-color: #2563eb; }
-.card { background: white; padding: 20px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; }
-.badge { font-size: 10px; font-weight: bold; color: #2563eb; text-transform: uppercase; }
-.btn { text-decoration: none; padding: 8px 15px; border-radius: 6px; font-size: 14px; font-weight: 500; margin-left: 5px; }
-.dpp { background: #eff6ff; color: #1d4ed8; }
-.ppt { background: #fff7ed; color: #c2410c; }
-.yt { background: #fef2f2; color: #b91c1c; }
+:root { --primary: #2563eb; --secondary: #1e293b; --accent: #f59e0b; }
+body { font-family: 'Inter', sans-serif; margin: 0; background: #f8fafc; }
+.navbar { display: flex; justify-content: space-between; padding: 20px 10%; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+.hero { display: flex; align-items: center; padding: 80px 10%; gap: 50px; }
+.main-button { background: var(--primary); color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; }
+.section-card { background: white; padding: 40px; border-radius: 15px; border: 2px solid #e2e8f0; cursor: pointer; transition: 0.3s; font-size: 1.2rem; font-weight: bold; }
+.section-card:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-5px); }
+.res-btn { display: block; width: 100%; padding: 20px; margin: 10px 0; border-radius: 10px; text-decoration: none; text-align: center; font-weight: bold; }
+.dpp { background: #dbeafe; color: #1e40af; }
+.ppt { background: #ffedd5; color: #9a3412; }
+.video { background: #fee2e2; color: #991b1b; }
