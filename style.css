@@ -723,6 +723,21 @@ h1 {
 .download-btn:hover {
     background: #1d4ed8;
 }
+
+/* Styling for buttons that aren't ready yet */
+.res-btn.disabled {
+    background: #f1f5f9 !important;
+    color: #94a3b8 !important;
+    border-color: #e2e8f0 !important;
+    pointer-events: none; /* Makes it unclickable */
+    cursor: default;
+    opacity: 0.7;
+}
+
+.res-btn.disabled::after {
+    content: " (Soon)";
+    font-size: 0.7rem;
+}
 /* FAB Container */
 .fab-wrapper {
     position: fixed;
@@ -734,6 +749,8 @@ h1 {
     align-items: flex-end;
     gap: 15px;
 }
+
+
 
 /* Main Circular Button */
 .fab-wrapper {
