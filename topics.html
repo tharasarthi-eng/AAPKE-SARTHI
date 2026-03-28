@@ -89,21 +89,32 @@
         const topics = topicData[chapterName] || Array.from({length: 10}, (_, i) => `Topic ${i + 1}`);
 
 topics.forEach((topic, index) => {
-    // Look up the links for this specific topic in our data.js
+    // 1. Look up the links for this specific topic in AAPKE_SARTHI_DATA
     const links = AAPKE_SARTHI_DATA[topic] || { dpp: "#", ppt: "#", video: "#" };
 
     const card = document.createElement('div');
     card.className = 'topic-item';
     
+    // 2. Logic to check if a resource exists
+    const hasDPP = links.dpp !== "#";
+    const hasPPT = links.ppt !== "#";
+    const hasVideo = links.video !== "#";
+
     card.innerHTML = `
         <div class="topic-main">
             <span class="topic-num">${index + 1}</span>
             <h3>${topic}</h3>
         </div>
         <div class="resource-group">
-            <a href="${links.dpp}" target="_blank" class="res-btn dpp-btn">📄 DPP</a>
-            <a href="${links.ppt}" target="_blank" class="res-btn ppt-btn">📊 PPT</a>
-            <a href="${links.video}" target="_blank" class="res-btn yt-btn">▶ Video</a>
+            <a href="${links.dpp}" target="_blank" class="res-btn dpp-btn ${!hasDPP ? 'disabled' : ''}">
+                📄 DPP
+            </a>
+            <a href="${links.ppt}" target="_blank" class="res-btn ppt-btn ${!hasPPT ? 'disabled' : ''}">
+                📊 PPT
+            </a>
+            <a href="${links.video}" target="_blank" class="res-btn yt-btn ${!hasVideo ? 'disabled' : ''}">
+                ▶ Video
+            </a>
         </div>
     `;
     listContainer.appendChild(card);
