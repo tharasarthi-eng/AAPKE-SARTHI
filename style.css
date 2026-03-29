@@ -586,6 +586,31 @@ h1 {
     font-weight: 600;
 }
 
+/* The 'Coming Soon' Disabled State */
+.res-btn.coming-soon {
+    background: #f1f5f9 !important; /* Soft Grey */
+    color: #94a3b8 !important;    /* Muted Text */
+    border: 1px solid #e2e8f0 !important;
+    cursor: not-allowed;
+    box-shadow: none !important;
+    transform: none !important;
+    opacity: 0.7;
+}
+
+/* Optional: Make the Watch button pop more when it IS available */
+.yt-btn:not(.coming-soon) {
+    background: #dc2626 !important;
+    color: white !important;
+    animation: pulse-subtle 2s infinite;
+}
+
+@keyframes pulse-subtle {
+    0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(220, 38, 38, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+}
+
+
 .dpp-btn { background: #e0f2fe; color: #0369a1; }
 .ppt-btn { background: #ffedd5; color: #9a3412; }
 .yt-btn { background: #fee2e2; color: #991b1b; }
