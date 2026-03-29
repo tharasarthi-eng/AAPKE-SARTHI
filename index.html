@@ -97,38 +97,33 @@
     });
 </script>
 
-    <script>
-   <button onclick="toggleDarkMode()" class="theme-toggle">
-    <span id="theme-icon">🌙</span>
-</button>
-
 <script>
-    function toggleDarkMode() {
+    // 1. Wait for the page to load completely
+    document.addEventListener('DOMContentLoaded', function() {
+        const btn = document.getElementById('theme-btn-fixed');
         const body = document.body;
-        const icon = document.getElementById('theme-icon');
-        
-        // Toggle the class
-        body.classList.toggle('dark-theme');
-        
-        // Save and Update UI
-        if (body.classList.contains('dark-theme')) {
-            localStorage.setItem('theme', 'dark');
-            if(icon) icon.innerText = '☀️';
-        } else {
-            localStorage.setItem('theme', 'light');
-            if(icon) icon.innerText = '🌙';
-        }
-    }
 
-    // Run this instantly on page load
-    (function() {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            document.body.classList.add('dark-theme');
-            const icon = document.getElementById('theme-icon');
-            if(icon) icon.innerText = '☀️';
+        // 2. Check for saved theme immediately
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-theme');
+            btn.innerText = '☀️';
         }
-    })();
+
+        // 3. The Click Trigger
+        btn.addEventListener('click', function() {
+            console.log("Button Clicked!"); // This will show in your browser 'Inspect' console
+            
+            body.classList.toggle('dark-theme');
+            
+            if (body.classList.contains('dark-theme')) {
+                localStorage.setItem('theme', 'dark');
+                btn.innerText = '☀️';
+            } else {
+                localStorage.setItem('theme', 'light');
+                btn.innerText = '🌙';
+            }
+        });
+    });
 </script>
     
 </body>
