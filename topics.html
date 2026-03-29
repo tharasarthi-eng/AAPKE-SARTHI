@@ -89,32 +89,33 @@
         const topics = topicData[chapterName] || Array.from({length: 10}, (_, i) => `Topic ${i + 1}`);
 
 topics.forEach((topic, index) => {
-    // 1. Look up the links for this specific topic in AAPKE_SARTHI_DATA
-    const links = AAPKE_SARTHI_DATA[topic] || { dpp: "#", ppt: "#", video: "#" };
+    // 1. Get the data from your data.js
+    const links = AAPKE_SARTHI_DATA[topic] || { video: "#", ppt: "#", range: "Loading...", count: 0 };
 
     const card = document.createElement('div');
     card.className = 'topic-item';
     
-    // 2. Logic to check if a resource exists
-    const hasDPP = links.dpp !== "#";
-    const hasPPT = links.ppt !== "#";
-    const hasVideo = links.video !== "#";
+    // 2. Helper function to create "Smart Buttons"
+    const createButton = (link, text, baseClass, icon) => {
+        const isAvailable = link && link !== "#";
+        const finalClass = isAvailable ? `${baseClass}` : `${baseClass} coming-soon`;
+        const finalText = isAvailable ? `${icon} ${text}` : `${icon} Coming Soon`;
+        const finalLink = isAvailable ? link : "javascript:void(0)"; // Disables clicking if empty
+        
+        return `<a href="${finalLink}" ${isAvailable ? 'target="_blank"' : ''} class="res-btn ${finalClass}">${finalText}</a>`;
+    };
 
     card.innerHTML = `
         <div class="topic-main">
             <span class="topic-num">${index + 1}</span>
-            <h3>${topic}</h3>
+            <div class="topic-info">
+                <h3>${topic}</h3>
+                <span class="lecture-meta">📹 ${links.range} (${links.count} Videos)</span>
+            </div>
         </div>
         <div class="resource-group">
-            <a href="${links.dpp}" target="_blank" class="res-btn dpp-btn ${!hasDPP ? 'disabled' : ''}">
-                📄 DPP
-            </a>
-            <a href="${links.ppt}" target="_blank" class="res-btn ppt-btn ${!hasPPT ? 'disabled' : ''}">
-                📊 PPT
-            </a>
-            <a href="${links.video}" target="_blank" class="res-btn yt-btn ${!hasVideo ? 'disabled' : ''}">
-                ▶ Video
-            </a>
+            ${createButton(links.ppt, "Topic PPT", "ppt-btn", "📊")}
+            ${createButton(links.video, "Watch Lectures", "yt-btn", "▶")}
         </div>
     `;
     listContainer.appendChild(card);
