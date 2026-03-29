@@ -98,32 +98,33 @@
 </script>
 
 <script>
-    // 1. Wait for the page to load completely
-    document.addEventListener('DOMContentLoaded', function() {
-        const btn = document.getElementById('theme-btn-fixed');
-        const body = document.body;
-
-        // 2. Check for saved theme immediately
-        if (localStorage.getItem('theme') === 'dark') {
-            body.classList.add('dark-theme');
-            btn.innerText = '☀️';
+    function toggleDarkMode() {
+        const root = document.documentElement;
+        const icon = document.getElementById('theme-icon');
+        
+        // This adds/removes the "dark-theme" class to the <html> tag
+        root.classList.toggle('dark-theme');
+        
+        if (root.classList.contains('dark-theme')) {
+            localStorage.setItem('theme', 'dark');
+            if(icon) icon.innerText = '☀️';
+        } else {
+            localStorage.setItem('theme', 'light');
+            if(icon) icon.innerText = '🌙';
         }
+    }
 
-        // 3. The Click Trigger
-        btn.addEventListener('click', function() {
-            console.log("Button Clicked!"); // This will show in your browser 'Inspect' console
-            
-            body.classList.toggle('dark-theme');
-            
-            if (body.classList.contains('dark-theme')) {
-                localStorage.setItem('theme', 'dark');
-                btn.innerText = '☀️';
-            } else {
-                localStorage.setItem('theme', 'light');
-                btn.innerText = '🌙';
-            }
-        });
-    });
+    // Check memory on load
+    (function() {
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark-theme');
+            // Update icon after page loads
+            window.onload = () => {
+                const icon = document.getElementById('theme-icon');
+                if(icon) icon.innerText = '☀️';
+            };
+        }
+    })();
 </script>
     
 </body>
