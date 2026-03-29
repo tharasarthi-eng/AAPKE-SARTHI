@@ -219,6 +219,38 @@ h1 {
     box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
 }
 
+:root {
+    --bg-color: #ffffff;
+    --text-color: #1e293b;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --navbar-bg: rgba(255, 255, 255, 0.9);
+}
+
+/* Dark Mode Colors */
+body.dark-theme {
+    --bg-color: #0f172a;    /* Deep Navy */
+    --text-color: #f1f5f9;   /* White/Grey text */
+    --card-bg: #1e293b;    /* Lighter Navy cards */
+    --border-color: #334155;
+    --navbar-bg: rgba(15, 23, 42, 0.9);
+}
+
+/* Apply variables to the website */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.3s, color 0.3s;
+}
+
+.navbar { background: var(--navbar-bg); border-color: var(--border-color); }
+.topic-item, .res-card, .about-card, .cat-box { 
+    background: var(--card-bg); 
+    border-color: var(--border-color); 
+    color: var(--text-color);
+}
+
+.topic-main h3, .section-title h2 { color: var(--text-color); }
 
 
 /* --- 4. Selection Grids (Sections & Chapters) --- */
