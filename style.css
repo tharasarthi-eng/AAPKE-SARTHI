@@ -1,27 +1,31 @@
 /* --- 1. Global Styles & Variables --- */
 :root {
-    --primary: #2563eb;       /* Modern Blue */
-    --primary-hover: #1d4ed8;
-    --bg-light: #f8fafc;
-    --white: #ffffff;
-    --text-main: #1e293b;
-    --text-muted: #64748b;
-    --accent-orange: #f59e0b;
-    --accent-red: #ef4444;
-    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --bg-main: #ffffff;
+    --text-primary: #1e293b;
+    --card-bg: #ffffff;
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+html.dark-theme {
+    --bg-main: #0f172a;
+    --text-primary: #f1f5f9;
+    --card-bg: #1e293b;
 }
 
+/* Apply these variables to the WHOLE page */
 body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    background-color: var(--bg-light);
-    color: var(--text-main);
-    line-height: 1.6;
+    background-color: var(--bg-main) !important;
+    color: var(--text-primary) !important;
+    transition: 0.3s;
+}
+
+/* Force the Hero Text (Master IIT-JEE) to change */
+h1, h2, h3, h4, p, span, li, a:not(.res-btn) {
+    color: var(--text-primary) !important;
+}
+
+.navbar, .topic-item, .cat-box, .about-card {
+    background-color: var(--card-bg) !important;
+    color: var(--text-primary) !important;
 }
 
 
