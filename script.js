@@ -4,6 +4,33 @@ const data = {
     "Algebra": ["Quadratic", "Trigonometry", "Sequence", "Binomial", "P&C", "Probability", "Matrices", "Determinants", "Complex", "Statistics"]
 };
 
+// Function to toggle Dark Mode
+function toggleDarkMode() {
+    const body = document.body;
+    body.classList.toggle('dark-theme');
+    
+    // Save preference to browser memory
+    const isDark = body.classList.contains('dark-theme');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    
+    // Update the icon
+    updateThemeIcon(isDark);
+}
+
+// Check for saved preference on page load
+window.onload = () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-theme');
+        updateThemeIcon(true);
+    }
+};
+
+function updateThemeIcon(isDark) {
+    const icon = document.getElementById('theme-icon');
+    if(icon) icon.innerText = isDark ? '☀️' : '🌙';
+}
+
 // Function to move from Sections to Chapters
 function selectSection(name) {
     localStorage.setItem('selectedSection', name);
