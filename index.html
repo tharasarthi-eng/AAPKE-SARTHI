@@ -96,43 +96,27 @@
 </script>
 
 <script>
-    function applyTheme(isDark) {
-        const root = document.documentElement.style;
-        const icon = document.getElementById('theme-icon');
-
-        if (isDark) {
-            root.setProperty('--bg', '#0f172a');
-            root.setProperty('--text', '#f1f5f9');
-            root.setProperty('--card', '#1e293b');
-            if(icon) icon.innerText = '☀️';
-        } else {
-            root.setProperty('--bg', '#ffffff');
-            root.setProperty('--text', '#1e293b');
-            root.setProperty('--card', '#ffffff');
-            if(icon) icon.innerText = '🌙';
-        }
-        
-        // Apply the colors to the page body
-        document.body.style.backgroundColor = isDark ? '#0f172a' : '#ffffff';
-        document.body.style.color = isDark ? '#f1f5f9' : '#1e293b';
-        
-        // Target all cards manually
-        document.querySelectorAll('.topic-item, .navbar, .cat-box, .res-card').forEach(el => {
-            el.style.backgroundColor = isDark ? '#1e293b' : '#ffffff';
-            el.style.color = isDark ? '#f1f5f9' : '#1e293b';
-        });
-    }
-
     function toggleDarkMode() {
-        const isDark = localStorage.getItem('theme') !== 'dark';
+        const html = document.documentElement;
+        const icon = document.getElementById('theme-icon');
+        
+        html.classList.toggle('dark-theme');
+        
+        const isDark = html.classList.contains('dark-theme');
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        applyTheme(isDark);
+        if(icon) icon.innerText = isDark ? '☀️' : '🌙';
     }
 
-    // Run on Load
-    window.addEventListener('DOMContentLoaded', () => {
-        applyTheme(localStorage.getItem('theme') === 'dark');
-    });
+    // Apply on load
+    (function() {
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark-theme');
+            window.addEventListener('load', () => {
+                const icon = document.getElementById('theme-icon');
+                if(icon) icon.innerText = '☀️';
+            });
+        }
+    })();
 </script>
     
 </body>
