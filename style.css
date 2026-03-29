@@ -23,6 +23,23 @@ body {
     color: var(--text-main);
     line-height: 1.6;
 }
+
+
+/* This forces EVERYTHING to change if dark-theme is active */
+.dark-theme, 
+.dark-theme main, 
+.dark-theme section, 
+.dark-theme div:not(.res-btn) {
+    background-color: #0f172a !important;
+    color: #f1f5f9 !important;
+}
+
+.dark-theme .navbar, 
+.dark-theme .topic-item, 
+.dark-theme .cat-box {
+    background-color: #1e293b !important;
+    border-color: #334155 !important;
+}
 /* Floating Action Button */
 .fab-container {
     position: fixed;
