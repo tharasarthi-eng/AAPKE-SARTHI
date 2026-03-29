@@ -94,28 +94,35 @@
 </script>
 
     <script>
+   <button onclick="toggleDarkMode()" class="theme-toggle">
+    <span id="theme-icon">🌙</span>
+</button>
+
+<script>
     function toggleDarkMode() {
         const body = document.body;
         const icon = document.getElementById('theme-icon');
         
+        // Toggle the class
         body.classList.toggle('dark-theme');
         
-        // Save choice
+        // Save and Update UI
         if (body.classList.contains('dark-theme')) {
             localStorage.setItem('theme', 'dark');
-            icon.innerText = '☀️';
+            if(icon) icon.innerText = '☀️';
         } else {
             localStorage.setItem('theme', 'light');
-            icon.innerText = '🌙';
+            if(icon) icon.innerText = '🌙';
         }
     }
 
-    // Apply the theme immediately when page loads
+    // Run this instantly on page load
     (function() {
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark') {
             document.body.classList.add('dark-theme');
-            document.getElementById('theme-icon').innerText = '☀️';
+            const icon = document.getElementById('theme-icon');
+            if(icon) icon.innerText = '☀️';
         }
     })();
 </script>
