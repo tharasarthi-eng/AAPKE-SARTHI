@@ -939,3 +939,50 @@ footer {
     color: white;
 }
 
+
+/* --- DARK MODE OVERRIDE (PASTED AT THE BOTTOM) --- */
+
+/* 1. Force the background of the whole page */
+html.dark-theme, 
+html.dark-theme body,
+html.dark-theme main {
+    background-color: #0f172a !important;
+    color: #f1f5f9 !important;
+}
+
+/* 2. Force the Navbar and Cards to change */
+html.dark-theme .navbar, 
+html.dark-theme .topic-item, 
+html.dark-theme .cat-box, 
+html.dark-theme .res-card,
+html.dark-theme footer {
+    background-color: #1e293b !important;
+    border: 1px solid #334155 !important;
+}
+
+/* 3. Force all text inside cards to stay visible/white */
+html.dark-theme h1, 
+html.dark-theme h2, 
+html.dark-theme h3, 
+html.dark-theme p, 
+html.dark-theme span,
+html.dark-theme .topic-num {
+    color: #f1f5f9 !important;
+}
+
+/* 4. The Toggle Button Style */
+.theme-toggle {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    cursor: pointer;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    margin-left: 15px;
+    transition: 0.3s;
+}
+
+html.dark-theme .theme-toggle {
+    background: #334155;
+    border-color: #475569;
+}
