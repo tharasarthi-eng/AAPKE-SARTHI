@@ -305,11 +305,19 @@ h2, h3, p, span {
 /* Centers the Chapter Roadmap */
 #chapterList {
     max-width: 800px;
-    margin: 40px auto;
+    margin: 40px auto; /* This centers the list on the page */
     display: flex;
     flex-direction: column;
     gap: 15px;
     padding: 0 20px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
 }
 
 .chapter-card {
@@ -318,23 +326,15 @@ h2, h3, p, span {
     align-items: center;
     background: var(--bg-card);
     border: 1px solid var(--border);
-    padding: 20px 35px;
+    padding: 20px 30px;
     border-radius: 12px;
     cursor: pointer;
-    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: 0.3s;
 }
 
 .chapter-card:hover {
-    transform: scale(1.02);
     border-color: var(--accent);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-/* Make the button within the card look like a CTA */
-.chapter-card .explore-btn {
-    padding: 10px 20px;
-    font-size: 0.9rem;
-    pointer-events: none; /* Let the card handle the click */
+    transform: translateY(-3px);
 }
 
 /* Mobile Fix: Stack them vertically and center everything */
