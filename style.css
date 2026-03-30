@@ -258,7 +258,7 @@ h2, h3, p, span {
 
 
 
-/* --- 5. Section, TOPIC & RESOURCE CARDS --- */
+/* --- 5. Section,chapters,  TOPIC & RESOURCE CARDS --- */
 /* Grid for the Sections/Branch page */
 
 /*section page*/
@@ -296,6 +296,57 @@ h2, h3, p, span {
     font-size: 1.8rem;
     margin-bottom: 10px;
     color: var(--accent) !important;
+}
+
+
+/*chapter page */
+
+
+/* Centers the Chapter Roadmap */
+#chapterList {
+    max-width: 800px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 20px;
+}
+
+.chapter-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 20px 35px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chapter-card:hover {
+    transform: scale(1.02);
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Make the button within the card look like a CTA */
+.chapter-card .explore-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    pointer-events: none; /* Let the card handle the click */
+}
+
+/* Mobile Fix: Stack them vertically and center everything */
+@media (max-width: 600px) {
+    .chapter-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    .chapter-info {
+        flex-direction: column;
+    }
 }
 
 /*Topic page*/
