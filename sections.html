@@ -117,11 +117,17 @@
             icon.innerText = "✕";
         }
     });
+</script>
 
-    // ADD THIS INSIDE THE SAME SCRIPT TAG
+    <script>
+    // Make sure NO other 'openBranch' function exists above this!
     function openBranch(branchName) {
-        console.log("Switching to:", branchName); // This helps you see it working
+        console.log("Attempting to open:", branchName); // This will help us debug
+        
+        // 1. Save the name
         localStorage.setItem('selectedSection', branchName);
+        
+        // 2. Immediate redirect
         window.location.href = 'chapters.html';
     }
 </script>
