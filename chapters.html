@@ -77,27 +77,44 @@
         document.getElementById('sectionTitle').innerText = sectionName + " Chapters";
 
         const listContainer = document.getElementById('chapterList');
-        const chapters = data[sectionName];
+const sectionName = localStorage.getItem('selectedSection') || "Geometry";
+document.getElementById('sectionTitle').innerText = sectionName + " Chapters";
 
-        chapters.forEach(chapter => {
-            const card = document.createElement('div');
-            card.className = 'chapter-card';
-            card.innerHTML = `
+const chapters = data[sectionName];
+
+chapters.forEach((chapter, index) => {
+    const card = document.createElement('div');
+    card.className = 'chapter-card';
+    
+    // We create a "Big Button" feel for the entire card
+    card.innerHTML = `
+        <div class="chapter-info">
+            <span class="chapter-index">${(index + 1).toString().padStart(2, '0')}</span>
+            <div class="chapter-text">
                 <h3>${chapter}</h3>
-                <span>View Topics →</span>
-            `;
-            card.onclick = () => {
-                localStorage.setItem('selectedChapter', chapter);
-                window.location.href = 'topics.html';
-            };
-            listContainer.appendChild(card);
-        });
+                <p>Complete Theory & JEE Advanced Problems</p>
+            </div>
+        </div>
+        <div class="btn-container">
+            <button class="explore-btn">Start Learning →</button>
+        </div>
+    `;
+
+    // Click logic to go to the specific topic list
+    card.onclick = () => {
+        localStorage.setItem('selectedChapter', chapter);
+        window.location.href = 'topics.html';
+    };
+
+    listContainer.appendChild(card);
+});
     </script>
 
 </body>
 </html>
     });
 </script>
+
 
 
 <footer id="footer">
