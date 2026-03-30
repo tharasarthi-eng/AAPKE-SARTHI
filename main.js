@@ -27,4 +27,18 @@ function toggleDarkMode() {
             if(icon) icon.innerText = '☀️';
         });
     }
-})();
+})
+
+
+function openBranch(branchName) {
+    // 1. Save the branch name (Geometry, Calculus, etc.)
+    localStorage.setItem('selectedSection', branchName);
+    
+    // 2. Move to the chapters page
+    window.location.href = 'chapters.html';
+}
+
+
+
+
+
