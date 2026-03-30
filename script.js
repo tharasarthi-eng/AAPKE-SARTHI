@@ -17,6 +17,21 @@ function toggleDarkMode() {
     updateThemeIcon(isDark);
 }
 
+function toggleTheme() {
+    // This adds/removes the 'dark-theme' class from the ENTIRE page
+    document.body.classList.toggle('dark-theme');
+    
+    // Save the preference so it stays dark when they change pages
+    const isDark = document.body.classList.contains('dark-theme');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+}
+
+// Load the saved theme when the page opens
+window.onload = () => {
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-theme');
+    }
+};
 // Check for saved preference on page load
 window.onload = () => {
     const savedTheme = localStorage.getItem('theme');
