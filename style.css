@@ -120,11 +120,13 @@ a { text-decoration: none; transition: 0.3s; }
 .explore-btn {
     background: var(--accent) !important;
     color: white !important;
-    padding: 15px 35px;
-    border-radius: 8px;
+    padding: 12px 28px;
+    border-radius: 50px;
     font-weight: 700;
     display: inline-block;
-    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+    margin-top: 20px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
 }
 
 
@@ -144,6 +146,11 @@ a { text-decoration: none; transition: 0.3s; }
     max-width: 900px;
     margin: 0 auto;
     text-align: center;
+}
+.welcome-section a {
+    color: var(--accent) !important;
+    font-weight: 600;
+    text-decoration: underline;
 }
 
 .about-card, .topic-item, .res-card {
@@ -257,6 +264,17 @@ footer {
     border-top: 1px solid var(--border);
     text-align: center;
     margin-top: 4rem;
+}
+
+footer a {
+    color: var(--text-main) !important;
+    margin: 0 10px;
+    opacity: 0.8;
+}
+
+footer a:hover {
+    color: var(--accent) !important;
+    opacity: 1;
 }
 
 .fab-main {
