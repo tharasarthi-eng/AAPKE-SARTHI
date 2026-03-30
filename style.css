@@ -151,16 +151,40 @@ a { text-decoration: none; transition: 0.3s; }
 }
 
 /* Fix for the "Explore Courses" Button */
+/* --- UNIVERSAL CALL-TO-ACTION BUTTONS --- */
+.btn-container {
+    display: flex;
+    justify-content: center; /* Centers the button horizontally */
+    margin-top: 25px;
+    width: 100%;
+}
+
 .explore-btn {
-    background: var(--accent) !important;
-    color: white !important;
-    padding: 12px 28px;
-    border-radius: 50px;
+    background-color: var(--accent) !important;
+    color: #ffffff !important;
+    padding: 14px 32px;
+    font-size: 1.1rem;
     font-weight: 700;
-    display: inline-block;
-    margin-top: 20px;
+    border-radius: 50px; /* Rounded pill shape looks modern */
     text-decoration: none;
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+    border: 2px solid transparent;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Hover Effect */
+.explore-btn:hover {
+    transform: translateY(-3px); /* Lifts up slightly */
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.6);
+    background-color: #1d4ed8 !important; /* Slightly darker blue */
+}
+
+/* Dark Mode Adjustment for Button Shadow */
+html.dark-theme .explore-btn {
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.5);
 }
 
 
@@ -235,6 +259,33 @@ h2, h3, p, span {
 
 
 /* --- 5. TOPIC & RESOURCE CARDS --- */
+.branch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 40px 0;
+}
+
+.branch-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.branch-card:hover {
+    border-color: var(--accent);
+    background: rgba(37, 99, 235, 0.05);
+}
+
+.branch-card h2 {
+    color: var(--accent) !important;
+    margin-bottom: 10px;
+}
+
 .topic-item, .cat-box, .res-card, .pyq-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
