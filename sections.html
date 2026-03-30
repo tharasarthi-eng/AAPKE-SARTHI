@@ -39,32 +39,31 @@
     <h1 class="text-center mt-50">Select Your Branch</h1>
     <p class="text-center">Choose a mathematical domain to see the chapters and topics.</p>
 
-    <div class="branch-grid">
-        <div class="branch-card">
-            <div class="branch-icon">📐</div>
-            <h2>Geometry</h2>
-            <p>Straight Lines, Circles, Conic Sections & 3D</p>
-            <div class="btn-container">
-                <a href="chapters.html" class="explore-btn">View chapters</a>
-            </div>
+   <div class="branch-grid">
+    <div class="branch-card" onclick="openBranch('Geometry')">
+        <div class="branch-icon">📐</div>
+        <h2>Geometry</h2>
+        <p>Straight Lines, Circles, Conic Sections & 3D</p>
+        <div class="btn-container">
+            <button class="explore-btn">View Chapters</button>
         </div>
+    </div>
 
-        <div class="branch-card">
-            <div class="branch-icon">📈</div>
-            <h2>Calculus</h2>
-            <p>Limits, Derivatives, Integration & DE</p>
-            <div class="btn-container">
-                <a href="chapters.html" class="explore-btn coming-soon">View chapters</a>
-            </div>
+    <div class="branch-card" onclick="openBranch('Calculus')">
+        <div class="branch-icon">📈</div>
+        <h2>Calculus</h2>
+        <p>Limits, Derivatives, Integration & DE</p>
+        <div class="btn-container">
+            <button class="explore-btn">View Chapters</button>
         </div>
-        
-        <div class="branch-card">
-            <div class="branch-icon">🔢</div>
-            <h2>Algebra</h2>
-            <p>Quadratic, Matrices, Probability & More</p>
-            <div class="btn-container">
-                <a href="chapters.html" class="explore-btn coming-soon">View chapters</a>
-            </div>
+    </div>
+    
+    <div class="branch-card" onclick="openBranch('Algebra')">
+        <div class="branch-icon">🔢</div>
+        <h2>Algebra</h2>
+        <p>Quadratic, Matrices, Probability & More</p>
+        <div class="btn-container">
+            <button class="explore-btn">View Chapters</button>
         </div>
     </div>
 </div>
