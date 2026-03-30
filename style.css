@@ -24,7 +24,46 @@ html.dark-theme {
     --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
 }
 
+/* --- Fix for Invisible Titles --- */
+h1, h2, h3, .section-title, .chapter-title {
+    color: var(--text-main) !important; /* Forces visibility */
+    margin-bottom: 10px;
+}
 
+p, .section-subtitle {
+    color: var(--text-main);
+    opacity: 0.8; /* Makes the subtitle slightly softer but visible */
+}
+
+/* --- Fix for Restricted Width --- */
+.container {
+    width: 90%;
+    max-width: 1000px; /* Widens the layout */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chapter-card, .topic-card {
+    width: 100%; /* Makes card fill the container */
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between; /* Keeps text left and button right */
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+/* Fix for mobile */
+@media (max-width: 768px) {
+    .chapter-card, .topic-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
 
 
 /* --- 3. NAVIGATION --- */
