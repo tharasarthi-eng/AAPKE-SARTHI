@@ -115,7 +115,58 @@ a { text-decoration: none; transition: 0.3s; }
 
 
 
+/* --- YOUTUBE SECTION --- */
+.youtube-section {
+    padding: 80px 20px;
+    background: var(--bg-alt); /* Slightly different background to separate it */
+}
 
+.youtube-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.yt-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.yt-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow);
+}
+
+.yt-icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.yt-card h3 {
+    margin-bottom: 10px;
+    color: var(--text-main);
+}
+
+/* Special color for the Travel button */
+.yt-travel-btn {
+    background-color: #ff0000 !important; /* YouTube Red */
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+}
+
+.yt-travel-btn:hover {
+    background-color: #cc0000 !important;
+}
 
 
 
