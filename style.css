@@ -30,12 +30,13 @@ html, body {
 }
 
 .container {
+    width: 95%;           /* Uses almost full width on mobile */
+    max-width: 1100px;    /* Increased from 800px to allow more room */
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers block elements like divs/buttons */
-    justify-content: center;
-    margin: 0 auto;
-    text-align: center;
+    align-items: center;  /* Keeps the stack centered */
+    padding: 20px;
 }
 
 h1, h2, h3, h4, p, span {
@@ -390,16 +391,18 @@ h2, h3, p, span {
     text-decoration: none;
 }
 
-.chapter-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.chapter-card, .topic-card {
+    width: 100%;          /* Forces card to use the full container width */
     background: var(--bg-card);
     border: 1px solid var(--border);
-    padding: 20px 30px;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: 0.3s;
+    padding: 25px 40px;   /* More padding on the sides for a premium feel */
+    border-radius: 16px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between; /* Pushes text to left/center and button to right */
+    align-items: center;
+    text-align: center;   /* Keeps internal text centered */
+    transition: 0.3s ease;
 }
 
 .chapter-card:hover {
@@ -681,7 +684,14 @@ footer a:hover {
 
 
 
-
+/* Responsive adjustment for mobile */
+@media (max-width: 768px) {
+    .chapter-card, .topic-card {
+        flex-direction: column; /* Stacks vertically on phones */
+        padding: 20px;
+        gap: 15px;
+    }
+}
 
 
 
