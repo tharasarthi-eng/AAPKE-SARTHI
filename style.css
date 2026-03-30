@@ -77,6 +77,40 @@ a { text-decoration: none; transition: 0.3s; }
     font-size: 1.2rem;
 }
 
+/* --- MOBILE MENU LOGIC --- */
+.menu-toggle {
+    display: none; /* Hidden on Desktop */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-main);
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle { display: block; }
+
+    .nav-links {
+        display: none; /* Hide links by default on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--bg-card);
+        padding: 20px;
+        border-bottom: 1px solid var(--border);
+        text-align: center;
+        gap: 15px;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show when 'active' class is added */
+    }
+
+    .nav-right { display: flex; align-items: center; }
+}
 
 
 
