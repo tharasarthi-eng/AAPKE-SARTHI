@@ -117,7 +117,15 @@
             icon.innerText = "✕";
         }
     });
+
+    // ADD THIS INSIDE THE SAME SCRIPT TAG
+    function openBranch(branchName) {
+        console.log("Switching to:", branchName); // This helps you see it working
+        localStorage.setItem('selectedSection', branchName);
+        window.location.href = 'chapters.html';
+    }
 </script>
+
 <script src="main.js"></script>
 </body>
 </html>
