@@ -25,7 +25,30 @@ html.dark-theme {
 }
 
 
+html, body {
+    text-align: center; /* Forces text to center by default */
+}
 
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers block elements like divs/buttons */
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1, h2, h3, h4, p, span {
+    text-align: center;
+    width: 100%;
+}
+
+/* Limit paragraph width for better readability on desktop */
+p {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /* --- 2. RESET & BASE --- */
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
