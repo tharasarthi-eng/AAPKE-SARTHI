@@ -24,6 +24,25 @@ html.dark-theme {
     --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
 }
 
+body.dark-theme h1, 
+body.dark-theme h2, 
+body.dark-theme p, 
+body.dark-theme .section-subtitle {
+    color: #f8fafc !important; /* Forces visible text on dark bg */
+}
+
+body {
+    background-color: #ffffff; /* Light Mode Default */
+    color: #1a1a1a;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* This is the magic block for Dark Mode */
+body.dark-theme {
+    background-color: #0f172a !important; /* Deep Navy/Black */
+    color: #f8fafc !important;           /* Off-white text */
+}
+
 /* --- Fix for Invisible Titles --- */
 h1, h2, h3, .section-title, .chapter-title {
     color: var(--text-main) !important; /* Forces visibility */
@@ -43,6 +62,7 @@ p, .section-subtitle {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: transparent !important;
 }
 
 .chapter-card, .topic-card {
