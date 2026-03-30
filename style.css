@@ -1,992 +1,295 @@
-/* --- 1. Global Styles & Variables --- */
+/* --- 1. THEME VARIABLES --- */
 :root {
-    --bg-main: #ffffff;
-    --text-primary: #1e293b;
-    --card-bg: #ffffff;
+    --bg-body: #ffffff;
+    --bg-card: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --accent: #2563eb;
+    --border: #e2e8f0;
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
+/* Dark Mode Overrides */
 html.dark-theme {
-    --bg-main: #0f172a;
-    --text-primary: #f1f5f9;
-    --card-bg: #1e293b;
+    --bg-body: #0f172a;
+    --bg-card: #1e293b;
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --accent: #3b82f6;
+    --border: #334155;
+    --nav-bg: rgba(15, 23, 42, 0.95);
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
 }
 
-/* Apply these variables to the WHOLE page */
+/* --- 2. RESET & BASE --- */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
+
 body {
-    background-color: var(--bg-main) !important;
-    color: var(--text-primary) !important;
-    transition: 0.3s;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    line-height: 1.6;
+    transition: all 0.3s ease;
 }
 
-/* Force the Hero Text (Master IIT-JEE) to change */
-h1, h2, h3, h4, p, span, li, a:not(.res-btn) {
-    color: var(--text-primary) !important;
-}
-
-.navbar, .topic-item, .cat-box, .about-card {
-    background-color: var(--card-bg) !important;
-    color: var(--text-primary) !important;
-}
+h1, h2, h3 { color: var(--text-main); }
+a { text-decoration: none; transition: 0.3s; }
 
 
-/* This forces EVERYTHING to change if dark-theme is active */
-.dark-theme, 
-.dark-theme main, 
-.dark-theme section, 
-.dark-theme div:not(.res-btn) {
-    background-color: #0f172a !important;
-    color: #f1f5f9 !important;
-}
 
-.dark-theme .navbar, 
-.dark-theme .topic-item, 
-.dark-theme .cat-box {
-    background-color: #1e293b !important;
-    border-color: #334155 !important;
-}
-/* Floating Action Button */
-.fab-container {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 1000;
-}
 
-.fab-main {
-    background: #2563eb;
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
-    cursor: pointer;
-    transition: 0.3s;
-}
 
-.fab-main:hover {
-    transform: scale(1.1) rotate(15deg);
-}
-h1 {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: #111827;
-    margin-bottom: 8px;
-}
-.container {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
 
-/* --- 2. Navigation Bar --- */
 
-.theme-toggle {
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 8px;
-    transition: 0.2s;
-}
 
-.theme-toggle:hover { background: var(--border-color); }
+
+
+
+
+
+
+/* --- 3. NAVIGATION --- */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 8%;
-    background: white;
-    border-bottom: 1px solid #f0f0f0;
+    padding: 1rem 5%;
+    background: var(--nav-bg);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 30px; /* Space between links */
-}
+.logo { font-weight: 800; font-size: 1.5rem; color: var(--accent); }
 
-.nav-links a {
-    text-decoration: none;
-    color: #4b5563;
-    font-weight: 500;
-    transition: color 0.2s;
-}
+.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+.nav-links a { color: var(--text-main); font-weight: 500; }
+.nav-links a:hover { color: var(--accent); }
 
-.nav-links a:hover {
-    color: #2563eb;
-}
-.logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--primary);
-    text-transform: uppercase;
-}
-
-.cta-btn {
-    background: var(--primary);
-    color: white !important;
-    padding: 8px 20px;
-    border-radius: 6px;
-    transition: 0.3s;
-}
-
-/* --- 3. Hero & About Section (Home Page) --- */
-
-/* Hero Section Enhancements */
-
-.intro-container {
-    padding: 60px 10%;
-    background-color: #ffffff;
-    text-align: center;
-}
-
-.intro-card {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 40px;
-    border-radius: 20px;
-    background: #f8fafc;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
-
-.credentials {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin: 20px 0;
-    font-weight: bold;
-    color: #2563eb;
-}
-
-.secondary-button {
-    display: inline-block;
-    margin-top: 15px;
-    color: #2563eb;
-    text-decoration: none;
-    font-weight: 600;
-}
-.badge-new {
-    background: #dbeafe;
-    color: #2563eb;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 15px;
-    display: inline-block;
-}
-
-.text-blue { color: #2563eb; }
-
-.hero-btns { display: flex; gap: 15px; margin-top: 20px; }
-
-.secondary-button {
-    padding: 15px 30px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    border: 2px solid #e2e8f0;
-    color: #475569;
-}
-
-.placeholder-vks {
-    width: 300px;
-    height: 350px;
-    background: #e2e8f0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 20px;
-    font-weight: 800;
-    color: #94a3b8;
-    border: 4px dashed #cbd5e1;
-}
-
-/* About Section Enhancements */
-.section-title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 40px;
-    position: relative;
-}
-
-.features-list { margin-top: 25px; display: grid; gap: 10px; }
-.f-item { background: white; padding: 12px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
-
-
-.hero {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    padding: 60px 5%;
-    gap: 40px;
-    background: white;
-}
-
-.hero-content {
-    flex: 1;
-    min-width: 300px;
-}
-
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: var(--secondary);
-}
-
-.main-button {
-    display: inline-block;
-    margin-top: 25px;
-    background: var(--primary);
-    color: white;
-    padding: 15px 35px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
-}
-
-:root {
-    --bg-color: #ffffff;
-    --text-color: #1e293b;
-    --card-bg: #ffffff;
-    --border-color: #e2e8f0;
-    --navbar-bg: rgba(255, 255, 255, 0.9);
-}
-
-/* 🌙 MASTER DARK MODE OVERRIDE */
-body.dark-theme {
-    background-color: #0f172a !important;
-    color: #f1f5f9 !important;
-}
-
-/* Force Navbar to Dark */
-body.dark-theme .navbar {
-    background-color: #1e293b !important;
-    border-bottom: 1px solid #334155 !important;
-}
-
-/* Force Nav Links to White */
-body.dark-theme .nav-links li a, 
-body.dark-theme .logo {
-    color: #f1f5f9 !important;
-}
-
-/* Force Topic Cards and Resource Cards to Dark */
-body.dark-theme .topic-item, 
-body.dark-theme .res-card, 
-body.dark-theme .cat-box, 
-body.dark-theme .about-card,
-body.dark-theme .pyq-card {
-    background-color: #1e293b !important;
-    border: 1px solid #334155 !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
-}
-
-/* Force All Headings to White */
-body.dark-theme h1, 
-body.dark-theme h2, 
-body.dark-theme h3, 
-body.dark-theme span,
-body.dark-theme p {
-    color: #f1f5f9 !important;
-}
-
-/* Adjust the Toggle Button */
 .theme-toggle {
+    background: var(--border);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 50px;
     cursor: pointer;
-    background: #eee;
-    border: 1px solid #ccc;
-    padding: 5px 10px;
-    border-radius: 5px;
-    margin-left: 10px;
-}
-.navbar { background: var(--navbar-bg); border-color: var(--border-color); }
-.topic-item, .res-card, .about-card, .cat-box { 
-    background: var(--card-bg); 
-    border-color: var(--border-color); 
-    color: var(--text-color);
-}
-
-.topic-main h3, .section-title h2 { color: var(--text-color); }
-
-
-/* --- 4. Selection Grids (Sections & Chapters) --- */
-.page-header {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.grid-4 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.section-card {
-    background: white;
-    padding: 40px 20px;
-    border-radius: 15px;
-    border: 2px solid #e2e8f0;
-    cursor: pointer;
-    transition: 0.3s;
     font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--text-main);
 }
 
-.section-card:hover {
-    border-color: var(--primary);
-    color: var(--primary);
-    transform: translateY(-5px);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- 3. NAVIGATION --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: var(--nav-bg);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+}
+
+.logo { font-weight: 800; font-size: 1.5rem; color: var(--accent); }
+
+.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+.nav-links a { color: var(--text-main); font-weight: 500; }
+.nav-links a:hover { color: var(--accent); }
+
+.theme-toggle {
+    background: var(--border);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* --- 4. HERO & CONTENT SECTIONS --- */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(to bottom, var(--bg-body), var(--bg-card));
+}
+
+.hero h1 { font-size: 3rem; margin-bottom: 1.5rem; }
+
+.about-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- 5. TOPIC & RESOURCE CARDS --- */
+.topic-item, .cat-box, .res-card, .pyq-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
     box-shadow: var(--shadow);
 }
 
-.grid-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    max-width: 700px;
-    margin: 0 auto;
-}
+.topic-main h3 { margin-bottom: 0.5rem; }
 
-.list-item-btn {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 25px;
-    background: white;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    font-size: 1.05rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.list-item-btn:hover {
-    border-color: var(--primary);
-    background: #f0f7ff;
-    transform: translateX(5px);
-}
-
-.arrow { color: #cbd5e1; }
-
-.breadcrumb {
-    margin-bottom: 20px;
-}
-
-.breadcrumb a {
-    color: #2563eb;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.chapter-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
-}
-
-.chapter-card {
-    background: #ffffff;
-    padding: 25px;
-    border-radius: 16px;
-    border: 1px solid #e5e7eb;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-}
-.chapter-card:hover {
-    transform: translateY(-8px);
-    border-color: #2563eb;
-    box-shadow: 0 12px 24px rgba(37, 99, 235, 0.1);
-}
-
-.chapter-card h3 {
-    margin: 0 0 10px 0;
-    font-size: 1.25rem;
-    color: #1f2937;
-    font-weight: 700;
-}
-
-/* Styling the "View 10 Topics" text */
-/* Topic Stack Layout */
-/* This makes the topics appear in a nice vertical stack */
-.topic-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 30px;
-    max-width: 900px;
-}
-
-/* This creates the white box around each topic */
-.topic-item {
-    background: #ffffff;
-    padding: 15px 25px;
-    border-radius: 12px;
-    border: 1px solid #e5e7eb;
-    display: flex;
-    justify-content: space-between; /* Pushes buttons to the right */
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.topic-main {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.topic-num {
-    font-weight: bold;
-    color: #2563eb;
-    background: #eff6ff;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-}
-
-
-/* PYQ Specific Styles */
-/* PYQ Layouts */
-.pyq-section {
-    margin-bottom: 60px;
-}
-
-.section-title {
-    margin-bottom: 25px;
-    border-left: 5px solid #2563eb;
-    padding-left: 15px;
-}
-
-/* Top 200 Cards */
-.top-200-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-}
-
-.top-card {
-    background: linear-gradient(135deg, #1e293b, #334155);
-    color: white;
-    padding: 20px;
-    text-align: center;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.top-card:hover { transform: scale(1.05); background: #2563eb; }
-
-/* Chapter-wise Category Boxes */
-.category-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.cat-box {
-    background: #f8fafc;
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
-}
-
-.cat-box h3 { color: #2563eb; margin-bottom: 15px; border-bottom: 1px solid #cbd5e1; padding-bottom: 5px; }
-
-.cat-box a {
-    display: block;
-    padding: 8px 0;
-    color: #475569;
-    text-decoration: none;
-    font-size: 0.95rem;
-    border-bottom: 1px dashed #e2e8f0;
-}
-
-.cat-box a:hover { color: #2563eb; padding-left: 5px; }
-
-/* PYQ Table */
-.pyq-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-.pyq-table th, .pyq-table td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid #f1f5f9;
-}
-
-.pyq-table th { background: #f1f5f9; color: #1e293b; }
-
-.sol-link { color: #dc2626; font-weight: bold; }
-/* JEE Advanced Specifics */
-.adv-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-top: 40px;
-}
-
-.adv-card {
-    background: #ffffff;
-    padding: 35px;
-    border-radius: 12px;
-    border: 2px solid #f1f5f9;
-    text-align: left; /* Advanced looks better with formal alignment */
-    transition: 0.3s;
-    position: relative;
-}
-
-.adv-card:hover {
-    border-color: #1e293b; /* Darker border for Advanced */
-    transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-}
-
-.adv-card.highlight {
-    background: #1e293b; /* Dark theme for the latest Advanced year */
-    color: white;
-}
-
-.adv-card.highlight h3 { color: white; }
-.adv-card.highlight p { color: #94a3b8; }
-
-.adv-tag {
-    font-size: 0.7rem;
-    background: #f59e0b; /* Amber/Gold for Advanced highlights */
-    color: #000;
-    padding: 3px 10px;
-    border-radius: 4px;
-    display: inline-block;
-    margin-bottom: 10px;
-    font-weight: 800;
-}
-
-.adv-btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 25px;
-    background: #2563eb;
-    color: white;
-    text-decoration: none;
+.lecture-meta {
+    font-size: 0.85rem;
+    color: var(--accent);
+    background: rgba(37, 99, 235, 0.1);
+    padding: 4px 10px;
     border-radius: 4px;
     font-weight: 600;
-    font-size: 0.9rem;
 }
 
-.adv-card.highlight .adv-btn {
-    background: white;
-    color: #1e293b;
-}
-/* Formula Sheet Specifics */
-.formula-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
-}
 
-.formula-card {
-    padding: 30px;
-    border-radius: 20px;
-    text-align: center;
-    border: 2px solid transparent;
-    transition: 0.3s;
-}
 
-.f-icon { font-size: 2.5rem; margin-bottom: 10px; }
 
-/* Color Themes */
-.geometry-theme { background: #e0f2fe; color: #0369a1; }
-.calculus-theme { background: #dcfce7; color: #15803d; }
-.algebra-theme { background: #fef3c7; color: #b45309; }
-.trig-theme { background: #fce7f3; color: #be185d; }
 
-.formula-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-}
 
-.f-btn {
-    margin-top: 15px;
-    display: inline-block;
-    padding: 10px 20px;
-    background: white;
-    color: inherit;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 700;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
 
-.year-badge {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    background: #ef4444;
-    color: white;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 800;
-}
 
-.view-btn {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 8px 20px;
-    background: #2563eb;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 0.9rem;
-}
 
-.archive {
-    background: #f8fafc;
-}
 
-/* This keeps the buttons side-by-side */
-.resource-group {
-    display: flex;
-    gap: 10px;
-}
+
+
+
+
+
+
+
+/* --- 6. BUTTONS --- */
+.resource-group { display: flex; gap: 1rem; margin-top: 1rem; }
 
 .res-btn {
-    text-decoration: none;
-    padding: 8px 15px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-/* The 'Coming Soon' Disabled State */
-.res-btn.coming-soon {
-    background: #f1f5f9 !important; /* Soft Grey */
-    color: #94a3b8 !important;    /* Muted Text */
-    border: 1px solid #e2e8f0 !important;
-    cursor: not-allowed;
-    box-shadow: none !important;
-    transform: none !important;
-    opacity: 0.7;
-}
-
-/* Optional: Make the Watch button pop more when it IS available */
-.yt-btn:not(.coming-soon) {
-    background: #dc2626 !important;
-    color: white !important;
-    animation: pulse-subtle 2s infinite;
-}
-
-@keyframes pulse-subtle {
-    0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); }
-    70% { box-shadow: 0 0 0 10px rgba(220, 38, 38, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
-}
-
-
-.dpp-btn { background: #e0f2fe; color: #0369a1; }
-.ppt-btn { background: #ffedd5; color: #9a3412; }
-.yt-btn { background: #fee2e2; color: #991b1b; }
-
-/* Mobile Responsive: Stack buttons on small screens */
-@media (max-width: 768px) {
-    .topic-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-    }
-    .resource-group {
-        width: 100%;
-        justify-content: space-between;
-    }
-    .res-btn {
-        flex: 1;
-        text-align: center;
-    }
-}
-
-
-/* About Page Specific Design */
-.about-header {
-    text-align: center;
-    padding: 60px 0 40px;
-}
-
-.badge-row {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 15px;
-}
-
-.badge {
-    background: #eff6ff;
-    color: #2563eb;
-    padding: 6px 16px;
-    border-radius: 30px;
-    font-size: 0.9rem;
-    font-weight: 700;
-    border: 1px solid #dbeafe;
-}
-
-.about-content-box {
-    max-width: 800px;
-    margin: 0 auto 60px;
-}
-
-.about-card {
-    background: white;
-    padding: 40px;
-    border-radius: 20px;
-    border: 1px solid #e2e8f0;
-    line-height: 1.8;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-.about-card h3 {
-    color: #1e293b;
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-}
-
-.quote-box {
-    margin-top: 30px;
-    padding: 20px;
-    border-left: 4px solid #2563eb;
-    background: #f8fafc;
-    font-style: italic;
-    color: #475569;
-    font-weight: 500;
-}
-
-
-/* Resource Page Styles */
-.resource-header {
-    text-align: center;
-    padding: 40px 0;
-}
-
-.resource-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-bottom: 60px;
-}
-
-.res-card {
-    background: white;
-    padding: 30px;
-    border-radius: 18px;
-    border: 1px solid #e2e8f0;
-    text-align: center;
-    transition: 0.3s;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.res-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    border-color: #2563eb;
-}
-
-.res-icon {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-}
-
-.res-card h3 {
-    color: #1e293b;
-    margin-bottom: 10px;
-}
-
-.res-card p {
-    color: #64748b;
-    font-size: 0.95rem;
-    margin-bottom: 20px;
-}
-
-.download-btn {
-    text-decoration: none;
-    background: #2563eb;
-    color: white;
     padding: 10px 20px;
     border-radius: 8px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    display: inline-block;
+    font-weight: 700;
+    text-align: center;
+    flex: 1;
 }
 
-.download-btn:hover {
-    background: #1d4ed8;
-}
+.yt-btn { background: #dc2626; color: white !important; }
+.ppt-btn { background: var(--accent); color: white !important; }
 
-/* Styling for buttons that aren't ready yet */
-.res-btn.disabled {
-    background: #f1f5f9 !important;
-    color: #94a3b8 !important;
-    border-color: #e2e8f0 !important;
-    pointer-events: none; /* Makes it unclickable */
-    cursor: default;
-    opacity: 0.7;
-}
-
-.res-btn.disabled::after {
-    content: " (Soon)";
-    font-size: 0.7rem;
-}
-/* FAB Container */
-.fab-wrapper {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 15px;
+/* The "Coming Soon" State */
+.res-btn.coming-soon {
+    background: var(--border) !important;
+    color: var(--text-muted) !important;
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 
 
 
-/* Main Circular Button */
-.fab-wrapper {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 10px;
-}
 
-.fab-menu {
-    display: none; /* The Script will change this to 'flex' */
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 10px;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- 7. FOOTER & WIDGET --- */
+footer {
+    padding: 4rem 1rem;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border);
+    text-align: center;
+    margin-top: 4rem;
 }
 
 .fab-main {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--accent);
+    color: white;
     width: 60px;
     height: 60px;
-    background: #2563eb;
-    color: white;
     border-radius: 50%;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: center;
-    font-size: 24px;
     cursor: pointer;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-.fab-item {
-    background: white;
-    padding: 12px 20px;
-    border-radius: 25px;
-    text-decoration: none;
-    color: #333;
-    font-weight: 600;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    border: 1px solid #eee;
-    white-space: nowrap;
-}
-/* Footer Polish */
-footer {
-    background: #1e293b;
-    color: white;
-    padding: 60px 20px;
-    margin-top: 80px;
-    text-align: center;
-}
-
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.social-links a {
-    color: #94a3b8;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.social-links a:hover {
-    color: white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 
-/* --- DARK MODE OVERRIDE (PASTED AT THE BOTTOM) --- */
 
-/* 1. Force the background of the whole page */
-html.dark-theme, 
-html.dark-theme body,
-html.dark-theme main {
-    background-color: #0f172a !important;
-    color: #f1f5f9 !important;
-}
 
-/* 2. Force the Navbar and Cards to change */
-html.dark-theme .navbar, 
-html.dark-theme .topic-item, 
-html.dark-theme .cat-box, 
-html.dark-theme .res-card,
-html.dark-theme footer {
-    background-color: #1e293b !important;
-    border: 1px solid #334155 !important;
-}
 
-/* 3. Force all text inside cards to stay visible/white */
-html.dark-theme h1, 
-html.dark-theme h2, 
-html.dark-theme h3, 
-html.dark-theme p, 
-html.dark-theme span,
-html.dark-theme .topic-num {
-    color: #f1f5f9 !important;
-}
 
-/* 4. The Toggle Button Style */
-.theme-toggle {
-    background: #f1f5f9;
-    border: 1px solid #cbd5e1;
-    cursor: pointer;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 1.2rem;
-    margin-left: 15px;
-    transition: 0.3s;
-}
 
-html.dark-theme .theme-toggle {
-    background: #334155;
-    border-color: #475569;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
