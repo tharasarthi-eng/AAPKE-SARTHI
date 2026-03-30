@@ -577,7 +577,41 @@ footer a:hover {
     cursor: pointer;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
+/* --- VERTICAL FOOTER LINKS --- */
+.footer-links {
+    display: flex;
+    flex-direction: column; /* This makes them stack vertically */
+    align-items: center;    /* Centers them horizontally */
+    gap: 15px;              /* Spacing between the links */
+    margin-top: 20px;
+}
 
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 25px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 600;
+    width: 100%;
+    max-width: 300px; /* Keeps buttons from getting too wide on desktop */
+    justify-content: center;
+    transition: 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px); /* Makes it "pop" up */
+    border-color: var(--accent);
+    box-shadow: var(--shadow);
+}
+
+.contact-item .icon {
+    font-size: 1.2rem;
+}
 
 
 
