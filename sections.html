@@ -8,19 +8,31 @@
 </head>
 <body>
 
- <nav class="navbar">
-    <a href="index.html" style="text-decoration: none;">
-        <div class="logo">Aapke Sarthi</div>
-    </a>
+
     
-    <ul class="nav-links">
+<nav class="navbar">
+    <a href="index.html" class="logo">Aapke Sarthi</a>
+    
+    <div class="nav-right">
+        <button onclick="toggleDarkMode()" class="theme-toggle">
+            <span id="theme-icon">🌙</span>
+        </button>
+
+        <button class="menu-toggle" onclick="toggleMenu()">
+            ☰
+        </button>
+    </div>
+
+    <ul class="nav-links" id="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About VKS Sir</a></li>
-        <li><a href="sections.html">Start Learning</a></li>
-        <li><a href="resources-page.html">RESOURCES</a></li>
-        <li><a href="#footer">Contact</a></li>
+        <li><a href="topics.html">Start Learning</a></li>
+        <li><a href="resources.html">RESOURCES</a></li>
+        <li><a href="contact.html">Contact</a></li>
     </ul>
 </nav>
+
+    
 
     <main class="container">
         <div class="section-header">
