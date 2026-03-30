@@ -32,41 +32,42 @@
     </ul>
 </nav>
 
+
     
 
-    <main class="container">
-        <div class="section-header">
-            <h1>Select Your Branch</h1>
-            <p>Choose a mathematical domain to see the chapters and topics.</p>
-        </div>
+   <div class="container">
+    <h1 class="text-center mt-50">Select Your Branch</h1>
+    <p class="text-center">Choose a mathematical domain to see the chapters and topics.</p>
 
-        <div class="section-grid">
-            <div class="section-card" onclick="selectSection('Geometry')">
-                <div class="icon">📐</div>
-                <h2>Geometry</h2>
-                <p>Straight Lines, Circles, Conic Sections & 3D</p>
-            </div>
-
-            <div class="section-card" onclick="selectSection('Calculus')">
-                <div class="icon">📈</div>
-                <h2>Calculus</h2>
-                <h2 style="font-size: 0.9rem; color: #666;">Limits, Derivatives, Integration & DE</h2>
-            </div>
-
-            <div class="section-card" onclick="selectSection('Algebra')">
-                <div class="icon">🔢</div>
-                <h2>Algebra</h2>
-                <p>Quadratic, Matrices, Probability & More</p>
-            </div>
-
-            <div class="section-card" onclick="selectSection('Miscellaneous')">
-                <div class="icon">🧩</div>
-                <h2>Miscellaneous</h2>
-                <p>Additional JEE Topics & Short Tricks</p>
+    <div class="branch-grid">
+        <div class="branch-card">
+            <div class="branch-icon">📐</div>
+            <h2>Geometry</h2>
+            <p>Straight Lines, Circles, Conic Sections & 3D</p>
+            <div class="btn-container">
+                <a href="topics.html" class="explore-btn">View Topics</a>
             </div>
         </div>
-    </main>
 
+        <div class="branch-card">
+            <div class="branch-icon">📈</div>
+            <h2>Calculus</h2>
+            <p>Limits, Derivatives, Integration & DE</p>
+            <div class="btn-container">
+                <a href="#" class="explore-btn coming-soon">Coming Soon</a>
+            </div>
+        </div>
+        
+        <div class="branch-card">
+            <div class="branch-icon">🔢</div>
+            <h2>Algebra</h2>
+            <p>Quadratic, Matrices, Probability & More</p>
+            <div class="btn-container">
+                <a href="#" class="explore-btn coming-soon">Coming Soon</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 
     <script>
