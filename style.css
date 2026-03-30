@@ -374,8 +374,8 @@ h2, h3, p, span {
 /* --- BACK BUTTON STYLING --- */
 .back-btn-container {
     display: flex;
-    justify-content: flex-start; /* Keeps it on the left, or use 'center' if you prefer */
-    margin: 20px 0;
+    justify-content: center; /* Centers the button horizontally */
+    margin: 30px 0 10px 0;   /* Adds breathing room below the button */
     width: 100%;
 }
 
@@ -390,6 +390,7 @@ h2, h3, p, span {
     text-decoration: none;
     display: inline-flex;
     align-items: center;
+    margin: 0 auto;
     gap: 8px;
     transition: all 0.3s ease;
 }
