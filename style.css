@@ -142,15 +142,35 @@ a { text-decoration: none; transition: 0.3s; }
 
 /* --- 3.1. CARDS & TEXT & Welcome to Aapke Sarthi --- */
 .welcome-section {
-    padding: 60px 20px;
-    max-width: 900px;
+    width: 100%;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
     text-align: center;
+    align-items: center; /* Centers items horizontally */
+    justify-content: center; /* Centers items vertically if needed */
+    text-align: center; /* Centers the text lines */
 }
 .welcome-section a {
     color: var(--accent) !important;
     font-weight: 600;
     text-decoration: underline;
+}
+
+.welcome-section p {
+    max-width: 900px; /* Prevents text from stretching across the whole screen */
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+}
+
+.badge-container, .welcome-section div {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap; /* Good for mobile screens */
 }
 
 .about-card, .topic-item, .res-card {
