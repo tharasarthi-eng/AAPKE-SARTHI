@@ -63,58 +63,7 @@
     </main>
 
 
-    <script>
-        // 1. Your Chapter Data
-        const data = {
-            "Geometry": ["Straight Line", "Circle", "Parabola", "Ellipse", "Hyperbola", "Vector", "3D"],
-            "Calculus": ["Set Theory", "Relation", "Function", "Inverse Trigonometry", "Limit, Continuity & Differentiability", "Method of Differentiation", "Application of Derivatives", "Integration (Indefinite)", "Integration (Definite)", "Application of Integration", "Differential Equation"],
-            "Algebra": ["Quadratic Equations", "Trigonometry Ratio & Equations", "Sequence & Series", "Binomial Theorem", "Permutations & Combinations", "Probability", "Matrices", "Determinants", "Complex Numbers", "Statistics"],
-            "Miscellaneous": ["Short Tricks", "Calculations", "Special Series"]
-        };
-
-        // 2. Logic to display the right chapters
-        const sectionName = localStorage.getItem('selectedSection') || "Geometry";
-        document.getElementById('sectionTitle').innerText = sectionName + " Chapters";
-
-        const listContainer = document.getElementById('chapterList');
-const sectionName = localStorage.getItem('selectedSection') || "Geometry";
-document.getElementById('sectionTitle').innerText = sectionName + " Chapters";
-
-const chapters = data[sectionName];
-
-chapters.forEach((chapter, index) => {
-    const card = document.createElement('div');
-    card.className = 'chapter-card';
-    
-    // We create a "Big Button" feel for the entire card
-    card.innerHTML = `
-        <div class="chapter-info">
-            <span class="chapter-index">${(index + 1).toString().padStart(2, '0')}</span>
-            <div class="chapter-text">
-                <h3>${chapter}</h3>
-                <p>Complete Theory & JEE Advanced Problems</p>
-            </div>
-        </div>
-        <div class="btn-container">
-            <button class="explore-btn">Start Learning →</button>
-        </div>
-    `;
-
-    // Click logic to go to the specific topic list
-    card.onclick = () => {
-        localStorage.setItem('selectedChapter', chapter);
-        window.location.href = 'topics.html';
-    };
-
-    listContainer.appendChild(card);
-    
-    </script>
-
-</body>
-</html>
-    });
-</script>
-
+  
 
 
 <footer id="footer">
@@ -155,6 +104,60 @@ chapters.forEach((chapter, index) => {
         }
     });
 </script>
+      <script>
+       // 1. Your Chapter Data
+const data = {
+    "Geometry": ["Straight Line", "Circle", "Parabola", "Ellipse", "Hyperbola", "Vector", "3D"],
+    "Calculus": ["Set Theory", "Relation", "Function", "Inverse Trigonometry", "Limit, Continuity & Differentiability", "Method of Differentiation", "Application of Derivatives", "Integration (Indefinite)", "Integration (Definite)", "Application of Integration", "Differential Equation"],
+    "Algebra": ["Quadratic Equations", "Trigonometry Ratio & Equations", "Sequence & Series", "Binomial Theorem", "Permutations & Combinations", "Probability", "Matrices", "Determinants", "Complex Numbers", "Statistics"],
+    "Miscellaneous": ["Short Tricks", "Calculations", "Special Series"]
+};
+
+// 2. Logic to display the right chapters
+const sectionName = localStorage.getItem('selectedSection') || "Geometry";
+document.getElementById('sectionTitle').innerText = sectionName + " Chapters";
+
+const listContainer = document.getElementById('chapterList');
+const chapters = data[sectionName];
+
+// 3. Clear container first to avoid duplicates
+listContainer.innerHTML = "";
+
+// 4. Generate the Centered Cards
+chapters.forEach((chapter, index) => {
+    const card = document.createElement('div');
+    card.className = 'chapter-card';
+    card.innerHTML = `
+        <div class="chapter-info">
+            <span class="chapter-index">${(index + 1).toString().padStart(2, '0')}</span>
+            <div class="chapter-text">
+                <h3>${chapter}</h3>
+                <p>Theory, Video Solutions & DPPs</p>
+            </div>
+        </div>
+        <div class="btn-container">
+            <button class="explore-btn">Open Chapter →</button>
+        </div>
+    `;
+
+    card.onclick = () => {
+        localStorage.setItem('selectedChapter', chapter);
+        window.location.href = 'topics.html';
+    };
+
+    listContainer.appendChild(card);
+});
+    </script>
+
+</body>
+</html>
+    });
+</script>
+
+    
 <script src="main.js"></script>
+
+
+    
 </body>
 </html>
